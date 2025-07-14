@@ -1,0 +1,15 @@
+
+## set enviroments
+source oe-init-build-env
+
+## common target build
+bitbake core-image-minimal -k
+
+## run qemu
+runqemu core-image-minimal nographic
+poweroff
+
+## find environments
+bitbake core-image-minimal -e | grep ^DL_DIR
+bitbake-getvar -r core-image-minimal DL_DIR
+
