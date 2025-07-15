@@ -1,0 +1,27 @@
+
+## download only source
+bitbke core-image-minimal --runall=fetch -f
+
+## SRC_URI
+vi meta/recipes-kernel/linux/linux-yocto_5.4.bb
+
+## check environments
+bitbake -e core-image-minimal | grep ^MIRRORS
+bitbkae -e binutils | grep ^SRC_URI
+
+## create mirrors
+vi build/conf/local.conf
+BB_GENERATE_MIRROR_TARBALLS = "1"
+rm -rf downloads
+bitbake core-image-minimal --runall=fetch -f
+
+rm -rf *\.done
+rm -rf git2
+
+mkdir source-mirrors
+cp -r build/downloads/* soruce-mirros/
+
+vi build/conf/local.conf
+INHERIT += "own-mirrors"
+SOURCE_MIRROR_URL = "file://${COREBASE}/source-mirrors"
+
