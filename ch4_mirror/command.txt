@@ -25,3 +25,16 @@ vi build/conf/local.conf
 INHERIT += "own-mirrors"
 SOURCE_MIRROR_URL = "file://${COREBASE}/source-mirrors"
 
+## create sstate-cache mirrors
+mkdir sstate-cache-mirrors
+cp -r build/sstate-cache/* sstate-cache-mirrors/
+
+vi build/conf/local.conf
+SSTATE_MIRRORS = "file://.* file://${COREBASE}/sstate-cache-mirrors/PATH"
+
+cp build/conf/local.conf .
+rm -rf build
+source oe-init-build-env
+cp ../local.conf conf/
+bitbake core-image-minimal
+
