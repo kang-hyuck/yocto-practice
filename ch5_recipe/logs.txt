@@ -1,0 +1,73 @@
+
+bitbake-getvar -r hello WORKDIR
+
+#
+# $WORKDIR [2 operations]
+#   set /home/kh/repo/poky/meta/conf/bitbake.conf:370
+#     "${BASE_WORKDIR}/${MULTIMACH_TARGET_SYS}/${PN}/${EXTENDPE}${PV}-${PR}"
+#   set /home/kh/repo/poky/meta/conf/documentation.conf:467
+#     [doc] "The pathname of the working directory in which the OpenEmbedded build system builds a recipe. This directory is located within the TMPDIR directory structure and changes as different packages are built."
+# pre-expansion value:
+#   "${BASE_WORKDIR}/${MULTIMACH_TARGET_SYS}/${PN}/${EXTENDPE}${PV}-${PR}"
+WORKDIR="/home/kh/repo/poky/build/tmp/work/core2-64-poky-linux/hello/1.0-r0"
+
+=============================================================================================================
+
+bitbake hello
+
+Loading cache: 100% |######################################################################################| Time: 0:00:00
+Loaded 1333 entries from dependency cache.
+NOTE: Resolving any missing task queue dependencies
+
+Build Configuration:
+BB_VERSION           = "1.46.0"
+BUILD_SYS            = "x86_64-linux"
+NATIVELSBSTRING      = "universal"
+TARGET_SYS           = "x86_64-poky-linux"
+MACHINE              = "qemux86-64"
+DISTRO               = "poky"
+DISTRO_VERSION       = "3.1.33"
+TUNE_FEATURES        = "m64 core2"
+TARGET_FPU           = ""
+meta
+meta-poky
+meta-yocto-bsp
+meta-hello           = "dunfell:63d05fc061006bf1a88630d6d91cdc76ea33fbf2"
+
+Initialising tasks: 100% |#################################################################################| Time: 0:00:00
+Sstate summary: Wanted 71 Found 64 Missed 7 Current 64 (90% match, 94% complete)
+NOTE: Executing Tasks
+NOTE: Tasks Summary: Attempted 542 tasks of which 527 didn't need to be rerun and all succeeded.
+
+=============================================================================================================
+
+bitbake core-image-minimal -C rootfs
+
+Loading cache: 100% |##################################################################| Time: 0:00:00
+Loaded 1333 entries from dependency cache.
+NOTE: Resolving any missing task queue dependencies
+
+Build Configuration:
+BB_VERSION           = "1.46.0"
+BUILD_SYS            = "x86_64-linux"
+NATIVELSBSTRING      = "universal"
+TARGET_SYS           = "x86_64-poky-linux"
+MACHINE              = "qemux86-64"
+DISTRO               = "poky"
+DISTRO_VERSION       = "3.1.33"
+TUNE_FEATURES        = "m64 core2"
+TARGET_FPU           = ""
+meta
+meta-poky
+meta-yocto-bsp
+meta-hello           = "dunfell:63d05fc061006bf1a88630d6d91cdc76ea33fbf2"
+
+NOTE: Tainting hash to force rebuild of task /home/kh/repo/poky/meta/recipes-core/images/core-image-minimal.bb, do_rootfs
+WARNING: /home/kh/repo/poky/meta/recipes-core/images/core-image-minimal.bb:do_rootfs is tainted from a forced run
+Initialising tasks: 100% |#############################################################| Time: 0:00:01
+Checking sstate mirror object availability: 100% |#####################################| Time: 0:00:00
+Sstate summary: Wanted 353 Found 349 Missed 4 Current 807 (98% match, 99% complete)
+NOTE: Executing Tasks
+NOTE: Tasks Summary: Attempted 3167 tasks of which 3157 didn't need to be rerun and all succeeded.
+
+Summary: There was 1 WARNING message shown.

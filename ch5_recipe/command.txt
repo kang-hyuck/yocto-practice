@@ -1,0 +1,32 @@
+
+## config custom layer
+vi build/conf/bblayers.conf
+bitbake-layers show-layers
+
+## build recipe
+bitbake hello -c cleanall
+bitbake hello
+
+## use recipe extension, bbappend to put binary in rootfs
+meta-hello-2
+├── conf
+│   └── layer.conf  // ++
+├── recipes-core    // ++++
+│   └── images      // ++++
+│       └── core-image-minimal.bbappend    // ++++
+└── recipes-hello
+    ├── hello.bb
+    └── source
+        ├── COPYING
+        └── hello.c
+
+## create rootfs with .bbappend
+bitbake hello -c cleanall & bitbake hello
+bitbake core-image-minimal -C rootfs
+runqemu core-image-minimal nographic
+which hello
+
+## check recipe extension results
+bitbake-layers show-appends | grep "core-image-minimal"
+bitbake-layers flatten result_recipes
+vi result_recipes/recipes-core/images/core-image-minimal.bb
