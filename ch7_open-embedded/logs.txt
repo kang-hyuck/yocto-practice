@@ -1,0 +1,212 @@
+
+bitbake vim
+
+Parsing recipes: 100% |################################################################| Time: 0:00:04
+Parsing of 778 .bb files complete (0 cached, 778 parsed). 1334 targets, 38 skipped, 0 masked, 0 errors.
+NOTE: Resolving any missing task queue dependencies
+
+Build Configuration:
+BB_VERSION           = "1.46.0"
+BUILD_SYS            = "x86_64-linux"
+NATIVELSBSTRING      = "universal"
+TARGET_SYS           = "x86_64-poky-linux"
+MACHINE              = "qemux86-64"
+DISTRO               = "poky"
+DISTRO_VERSION       = "3.1.33"
+TUNE_FEATURES        = "m64 core2"
+TARGET_FPU           = ""
+meta
+meta-poky
+meta-yocto-bsp
+meta-hello
+meta-vim             = "dunfell:63d05fc061006bf1a88630d6d91cdc76ea33fbf2"
+
+Initialising tasks: 100% |#############################################################| Time: 0:00:00
+Checking sstate mirror object availability: 100% |#####################################| Time: 0:00:00
+Sstate summary: Wanted 108 Found 100 Missed 8 Current 577 (92% match, 98% complete)
+NOTE: Executing Tasks
+WARNING: vim-8.2-r0 do_populate_lic: vim: No generic license file exists for: Vim-license in any provider
+WARNING: vim-8.2-r0 do_populate_lic: Could not copy license file /home/kh/repo/poky/build/tmp/work/core2-64-poky-linux/vim/8.2-r0/vim-8.2/runtime/doc/uganda.txt to /home/kh/repo/poky/build/tmp/work/core2-64-poky-linux/vim/8.2-r0/license-destdir/vim/uganda.txt: [Errno 2] No such file or directory: '/home/kh/repo/poky/build/tmp/work/core2-64-poky-linux/vim/8.2-r0/vim-8.2/runtime/doc/uganda.txt'
+ERROR: vim-8.2-r0 do_populate_lic: QA Issue: vim: LIC_FILES_CHKSUM points to an invalid file: /home/kh/repo/poky/build/tmp/work/core2-64-poky-linux/vim/8.2-r0/vim-8.2/runtime/doc/uganda.txt [license-checksum]
+ERROR: vim-8.2-r0 do_populate_lic: Fatal QA errors found, failing task.
+ERROR: Logfile of failure stored in: /home/kh/repo/poky/build/tmp/work/core2-64-poky-linux/vim/8.2-r0/temp/log.do_populate_lic.15310
+ERROR: Task (/home/kh/repo/poky/meta-vim/recipes-vim/vim_8.2.bb:do_populate_lic) failed with exit code '1'
+NOTE: Tasks Summary: Attempted 2148 tasks of which 2142 didn't need to be rerun and 1 failed.
+
+Summary: 1 task failed:
+  /home/kh/repo/poky/meta-vim/recipes-vim/vim_8.2.bb:do_populate_lic
+Summary: There were 2 WARNING messages shown.
+Summary: There were 2 ERROR messages shown, returning a non-zero exit code.
+
+=>
+WORKDIR = /home/kh/repo/poky/build/tmp/work/core2-64-poky-linux/vim/8.2-r0
+S = /home/kh/repo/poky/build/tmp/work/core2-64-poky-linux/vim/8.2-r0
+cd /home/kh/repo/poky/build/tmp/work/core2-64-poky-linux/vim/8.2-r0
+It's vim-8.2.0 (no vim-8.2)
+changes recipe name: (vim_8.2.bb -> vim_8.2.0.bb)
+
+------------------------------------------------------------------------------------------
+
+bitbake vim -C fetch
+
+Loading cache: 100% |#############################################################################################################################################################################| Time: 0:00:00
+Loaded 1335 entries from dependency cache.
+Parsing recipes: 100% |###########################################################################################################################################################################| Time: 0:00:00
+Parsing of 779 .bb files complete (778 cached, 1 parsed). 1335 targets, 38 skipped, 0 masked, 0 errors.
+NOTE: Resolving any missing task queue dependencies
+
+Build Configuration:
+BB_VERSION           = "1.46.0"
+BUILD_SYS            = "x86_64-linux"
+NATIVELSBSTRING      = "universal"
+TARGET_SYS           = "x86_64-poky-linux"
+MACHINE              = "qemux86-64"
+DISTRO               = "poky"
+DISTRO_VERSION       = "3.1.33"
+TUNE_FEATURES        = "m64 core2"
+TARGET_FPU           = ""
+meta
+meta-poky
+meta-yocto-bsp
+meta-hello
+meta-vim             = "dunfell:63d05fc061006bf1a88630d6d91cdc76ea33fbf2"
+
+NOTE: Tainting hash to force rebuild of task /home/kh/repo/poky/meta-vim/recipes-vim/vim_8.2.0.bb, do_fetch                                                                                       | ETA:  0:00:00
+WARNING: /home/kh/repo/poky/meta-vim/recipes-vim/vim_8.2.0.bb:do_fetch is tainted from a forced run#                                                                                              | ETA:  0:00:00
+Initialising tasks: 100% |########################################################################################################################################################################| Time: 0:00:00
+Checking sstate mirror object availability: 100% |################################################################################################################################################| Time: 0:00:00
+Sstate summary: Wanted 108 Found 100 Missed 8 Current 577 (92% match, 98% complete)
+NOTE: Executing Tasks
+WARNING: vim-8.2.0-r0 do_populate_lic: vim: No generic license file exists for: Vim-license in any provider
+WARNING: vim-8.2.0-r0 do_populate_lic: Could not copy license file /home/kh/repo/poky/build/tmp/work/core2-64-poky-linux/vim/8.2.0-r0/vim-8.2.0/src/runtime/doc/uganda.txt to /home/kh/repo/poky/build/tmp/work/core2-64-poky-linux/vim/8.2.0-r0/license-destdir/vim/uganda.txt: [Errno 2] No such file or directory: '/home/kh/repo/poky/build/tmp/work/core2-64-poky-linux/vim/8.2.0-r0/vim-8.2.0/src/runtime/doc/uganda.txt'
+ERROR: vim-8.2.0-r0 do_populate_lic: QA Issue: vim: LIC_FILES_CHKSUM points to an invalid file: /home/kh/repo/poky/build/tmp/work/core2-64-poky-linux/vim/8.2.0-r0/vim-8.2.0/src/runtime/doc/uganda.txt [license-checksum]
+ERROR: vim-8.2.0-r0 do_populate_lic: Fatal QA errors found, failing task.
+ERROR: Logfile of failure stored in: /home/kh/repo/poky/build/tmp/work/core2-64-poky-linux/vim/8.2.0-r0/temp/log.do_populate_lic.18475
+ERROR: Task (/home/kh/repo/poky/meta-vim/recipes-vim/vim_8.2.0.bb:do_populate_lic) failed with exit code '1'
+NOTE: Tasks Summary: Attempted 2148 tasks of which 2142 didn't need to be rerun and 1 failed.
+
+Summary: 1 task failed:
+  /home/kh/repo/poky/meta-vim/recipes-vim/vim_8.2.0.bb:do_populate_lic
+Summary: There were 3 WARNING messages shown.
+Summary: There were 2 ERROR messages shown, returning a non-zero exit code.
+
+=> 
+WORKDIR = /home/kh/repo/poky/build/tmp/work/core2-64-poky-linux/vim/8.2.0-r0
+S = /home/kh/repo/poky/build/tmp/work/core2-64-poky-linux/vim/8.2.0-r0/vim-8.2.0/src
+license find path: /home/kh/repo/poky/build/tmp/work/core2-64-poky-linux/vim/8.2.0-r0/vim-8.2.0/src
+configure & build path: /home/kh/repo/poky/build/tmp/work/core2-64-poky-linux/vim/8.2.0-r0/vim-8.2.0/src
+
+------------------------------------------------------------------------------------------
+
+bitbake vim -C fetch
+
+Loading cache: 100% |#############################################################################################################################################################################| Time: 0:00:00
+Loaded 1335 entries from dependency cache.
+Parsing recipes: 100% |###########################################################################################################################################################################| Time: 0:00:00
+Parsing of 778 .bb files complete (777 cached, 1 parsed). 1334 targets, 38 skipped, 0 masked, 0 errors.
+NOTE: Resolving any missing task queue dependencies
+
+Build Configuration:
+BB_VERSION           = "1.46.0"
+BUILD_SYS            = "x86_64-linux"
+NATIVELSBSTRING      = "universal"
+TARGET_SYS           = "x86_64-poky-linux"
+MACHINE              = "qemux86-64"
+DISTRO               = "poky"
+DISTRO_VERSION       = "3.1.33"
+TUNE_FEATURES        = "m64 core2"
+TARGET_FPU           = ""
+meta
+meta-poky
+meta-yocto-bsp
+meta-hello
+meta-vim             = "dunfell:63d05fc061006bf1a88630d6d91cdc76ea33fbf2"
+
+NOTE: Tainting hash to force rebuild of task /home/kh/repo/poky/meta-vim/recipes-vim/vim_8.2.0.bb, do_fetch                                                                                       | ETA:  0:00:00
+WARNING: /home/kh/repo/poky/meta-vim/recipes-vim/vim_8.2.0.bb:do_fetch is tainted from a forced run#                                                                                              | ETA:  0:00:00
+Initialising tasks: 100% |########################################################################################################################################################################| Time: 0:00:00
+Checking sstate mirror object availability: 100% |################################################################################################################################################| Time: 0:00:00
+Sstate summary: Wanted 108 Found 100 Missed 8 Current 577 (92% match, 98% complete)
+NOTE: Executing Tasks
+WARNING: vim-8.2.0-r0 do_populate_lic: vim: No generic license file exists for: Vim-license in any provider
+WARNING: vim-8.2.0-r0 do_configure: kh_pre: /home/kh/repo/poky/build/tmp/work/core2-64-poky-linux/vim/8.2.0-r0/build
+ERROR: vim-8.2.0-r0 do_configure: configure failed
+ERROR: vim-8.2.0-r0 do_configure: Execution of '/home/kh/repo/poky/build/tmp/work/core2-64-poky-linux/vim/8.2.0-r0/temp/run.do_configure.21693' failed with exit code 1
+ERROR: Logfile of failure stored in: /home/kh/repo/poky/build/tmp/work/core2-64-poky-linux/vim/8.2.0-r0/temp/log.do_configure.21693
+Log data follows:
+| DEBUG: Executing shell function autotools_preconfigure
+| DEBUG: Shell function autotools_preconfigure finished
+| DEBUG: Executing python function autotools_aclocals
+| DEBUG: SITE files ['endian-little', 'common-linux', 'common-glibc', 'bit-64', 'x86_64-linux', 'common']
+| DEBUG: Python function autotools_aclocals finished
+| DEBUG: Executing shell function do_configure
+| WARNING: kh_pre: /home/kh/repo/poky/build/tmp/work/core2-64-poky-linux/vim/8.2.0-r0/build
+| NOTE: Running ../vim-8.2.0/configure  --build=x86_64-linux              --host=x86_64-poky-linux                --target=x86_64-poky-linux              --prefix=/usr                   --exec_prefix=/usr      --bindir=/usr/bin                --sbindir=/usr/sbin             --libexecdir=/usr/libexec               --datadir=/usr/share            --sysconfdir=/etc               --sharedstatedir=/com                   --localstatedir=/var             --libdir=/usr/lib               --includedir=/usr/include               --oldincludedir=/usr/include            --infodir=/usr/share/info               --mandir=/usr/share/man                  --disable-silent-rules                  --disable-dependency-tracking                   --with-libtool-sysroot=/home/kh/repo/poky/build/tmp/work/core2-64-poky-linux/vim/8.2.0-r0/recipe-sysroot  --disable-static --enable-nls
+| ../vim-8.2.0/configure: 6: cd: can't cd to src
+| NOTE: The following config.log files may provide further information.
+| NOTE:
+| ERROR: configure failed
+| WARNING: exit code 1 from a shell command.
+| ERROR: Execution of '/home/kh/repo/poky/build/tmp/work/core2-64-poky-linux/vim/8.2.0-r0/temp/run.do_configure.21693' failed with exit code 1
+ERROR: Task (/home/kh/repo/poky/meta-vim/recipes-vim/vim_8.2.0.bb:do_configure) failed with exit code '1'
+NOTE: Tasks Summary: Attempted 2149 tasks of which 2142 didn't need to be rerun and 1 failed.
+
+Summary: 1 task failed:
+  /home/kh/repo/poky/meta-vim/recipes-vim/vim_8.2.0.bb:do_configure
+Summary: There were 3 WARNING messages shown.
+Summary: There were 2 ERROR messages shown, returning a non-zero exit code.
+
+=>
+WORKDIR = /home/kh/repo/poky/build/tmp/work/core2-64-poky-linux/vim/8.2.0-r0
+S = /home/kh/repo/poky/build/tmp/work/core2-64-poky-linux/vim/8.2.0-r0/vim-8.2.0
+license find path: /home/kh/repo/poky/build/tmp/work/core2-64-poky-linux/vim/8.2.0-r0/vim-8.2.0
+configure & build path: /home/kh/repo/poky/build/tmp/work/core2-64-poky-linux/vim/8.2.0-r0/vim-8.2.0
+=>
+S = /home/kh/repo/poky/build/tmp/work/core2-64-poky-linux/vim/8.2.0-r0/vim-8.2.0
+B = /home/kh/repo/poky/build/tmp/work/core2-64-poky-linux/vim/8.2.0-r0/vim-8.2.0/src
+S: source find path
+B: configure & build
+
+------------------------------------------------------------------------------------------
+
+bitbake vim -C fetch
+
+Loading cache: 100% |#####################################################################| Time: 0:00:00
+Loaded 1335 entries from dependency cache.
+NOTE: Resolving any missing task queue dependencies
+
+Build Configuration:
+BB_VERSION           = "1.46.0"
+BUILD_SYS            = "x86_64-linux"
+NATIVELSBSTRING      = "universal"
+TARGET_SYS           = "x86_64-poky-linux"
+MACHINE              = "qemux86-64"
+DISTRO               = "poky"
+DISTRO_VERSION       = "3.1.33"
+TUNE_FEATURES        = "m64 core2"
+TARGET_FPU           = ""
+meta
+meta-poky
+meta-yocto-bsp
+meta-hello
+meta-vim             = "dunfell:63d05fc061006bf1a88630d6d91cdc76ea33fbf2"
+
+NOTE: Tainting hash to force rebuild of task /home/kh/repo/poky/meta-vim/recipes-vim/vim_8.2.0.bb, do_fetch
+WARNING: /home/kh/repo/poky/meta-vim/recipes-vim/vim_8.2.0.bb:do_fetch is tainted from a forced run:00:00
+Initialising tasks: 100% |################################################################| Time: 0:00:00
+Checking sstate mirror object availability: 100% |########################################| Time: 0:00:00
+Sstate summary: Wanted 108 Found 100 Missed 8 Current 577 (92% match, 98% complete)
+NOTE: Executing Tasks
+WARNING: vim-8.2.0-r0 do_populate_lic: vim: No generic license file exists for: Vim-license in any provider
+WARNING: vim-8.2.0-r0 do_configure: kh_pre: /home/kh/repo/poky/build/tmp/work/core2-64-poky-linux/vim/8.2.0-r0/vim-8.2.0
+WARNING: vim-8.2.0-r0 do_configure: kh: /home/kh/repo/poky/build/tmp/work/core2-64-poky-linux/vim/8.2.0-r0/vim-8.2.0
+WARNING: vim-8.2.0-r0 do_configure: kh_app: /home/kh/repo/poky/build/tmp/work/core2-64-poky-linux/vim/8.2.0-r0/vim-8.2.0
+WARNING: vim-8.2.0-r0 do_package_qa: QA Issue: vim: SRC_URI uses unstable GitHub/GitLab archives, convert recipe to use git protocol [src-uri-bad]
+NOTE: Tasks Summary: Attempted 2157 tasks of which 2142 didn't need to be rerun and all succeeded.
+
+Summary: There were 6 WARNING messages shown.
+
+=>
+S = /home/kh/repo/poky/build/tmp/work/core2-64-poky-linux/vim/8.2.0-r0/vim-8.2.0
+B = /home/kh/repo/poky/build/tmp/work/core2-64-poky-linux/vim/8.2.0-r0/vim-8.2.0
+
