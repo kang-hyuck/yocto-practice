@@ -1,0 +1,30 @@
+
+## use systemd service
+meta-hello/
+├── conf
+│   └── layer.conf
+├── recipes-core
+│   └── images
+│       └── core-image-minimal.bbappend
+└── recipes-hello
+    ├── hello.bb  // ++++
+    └── source
+        ├── COPYING
+        ├── hello.c  // --
+        └── hello.service  // ++++
+
+## create rootfs and run service
+bitbake hello -C fetch
+bitbake core-image-minimal -C rootfs
+runqemu core-image-minimal nographic
+
+journalctl -u hello -f &
+systemctl stop hello
+systemctl start hello
+
+## check temp path
+bitbake-getvar -r hello T
+vi build/tmp/work/core2-64-poky-linux/hello/1.0-r0/temp/console-latest.log
+vi build/tmp/work/core2-64-poky-linux/hello/1.0-r0/temp/run.do_compile
+vi build/tmp/work/core2-64-poky-linux/hello/1.0-r0/temp/log.task_order
+

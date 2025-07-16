@@ -1,0 +1,167 @@
+
+bitbake hello -C fetch
+
+Loading cache: 100% |#############################################################################################################################################################################| Time: 0:00:00
+Loaded 1333 entries from dependency cache.
+NOTE: Resolving any missing task queue dependencies
+
+Build Configuration:
+BB_VERSION           = "1.46.0"
+BUILD_SYS            = "x86_64-linux"
+NATIVELSBSTRING      = "universal"
+TARGET_SYS           = "x86_64-poky-linux"
+MACHINE              = "qemux86-64"
+DISTRO               = "poky"
+DISTRO_VERSION       = "3.1.33"
+TUNE_FEATURES        = "m64 core2"
+TARGET_FPU           = ""
+meta
+meta-poky
+meta-yocto-bsp
+meta-hello           = "dunfell:63d05fc061006bf1a88630d6d91cdc76ea33fbf2"
+
+NOTE: Tainting hash to force rebuild of task /home/kh/repo/poky/meta-hello/recipes-hello/hello.bb, do_fetch                                                                                       | ETA:  0:00:00
+WARNING: /home/kh/repo/poky/meta-hello/recipes-hello/hello.bb:do_fetch is tainted from a forced run#                                                                                              | ETA:  0:00:00
+Initialising tasks: 100% |########################################################################################################################################################################| Time: 0:00:00
+Sstate summary: Wanted 62 Found 55 Missed 7 Current 75 (88% match, 94% complete)
+NOTE: Executing Tasks
+NOTE: Tasks Summary: Attempted 551 tasks of which 536 didn't need to be rerun and all succeeded.
+
+Summary: There was 1 WARNING message shown.
+
+-----------------------------------------------------------------------------------------------
+
+bitbake core-image-minimal -C rootfs
+
+Loading cache: 100% |##################################################################| Time: 0:00:00
+Loaded 1333 entries from dependency cache.
+NOTE: Resolving any missing task queue dependencies
+
+Build Configuration:
+BB_VERSION           = "1.46.0"
+BUILD_SYS            = "x86_64-linux"
+NATIVELSBSTRING      = "universal"
+TARGET_SYS           = "x86_64-poky-linux"
+MACHINE              = "qemux86-64"
+DISTRO               = "poky"
+DISTRO_VERSION       = "3.1.33"
+TUNE_FEATURES        = "m64 core2"
+TARGET_FPU           = ""
+meta
+meta-poky
+meta-yocto-bsp
+meta-hello           = "dunfell:63d05fc061006bf1a88630d6d91cdc76ea33fbf2"
+
+NOTE: Tainting hash to force rebuild of task /home/kh/repo/poky/meta/recipes-core/images/core-image-minimal.bb, do_rootfs
+WARNING: /home/kh/repo/poky/meta-hello/recipes-hello/hello.bb:do_fetch is tainted from a forced run:00
+WARNING: /home/kh/repo/poky/meta/recipes-core/images/core-image-minimal.bb:do_rootfs is tainted from a forced run
+Initialising tasks: 100% |#############################################################| Time: 0:00:01
+Checking sstate mirror object availability: 100% |#####################################| Time: 0:00:00
+Sstate summary: Wanted 791 Found 237 Missed 554 Current 423 (29% match, 54% complete)
+NOTE: Executing Tasks
+NOTE: Tasks Summary: Attempted 3312 tasks of which 1804 didn't need to be rerun and all succeeded.
+
+Summary: There were 2 WARNING messages shown
+
+-----------------------------------------------------------------------------------------------
+
+root@qemux86-64:~# journalctl -u hello -f &
+
+root@qemux86-64:~# -- Logs begin at Wed 2025-07-16 08:58:40 UTC. --
+Jul 16 08:58:45 qemux86-64 hello[137]: Hello world!
+Jul 16 08:58:45 qemux86-64 hello[137]: Hello world!
+Jul 16 08:58:45 qemux86-64 hello[137]: Hello world!
+Jul 16 08:58:45 qemux86-64 hello[137]: Hello world!
+Jul 16 08:58:45 qemux86-64 hello[137]: Hello world!
+Jul 16 08:58:45 qemux86-64 hello[137]: Hello world!
+Jul 16 08:58:45 qemux86-64 hello[137]: Hello world!
+Jul 16 08:58:45 qemux86-64 hello[137]: Hello world!
+Jul 16 08:58:45 qemux86-64 hello[137]: Hello world!
+Jul 16 08:58:46 qemux86-64 systemd[1]: hello.service: Succeeded.
+
+-----------------------------------------------------------------------------------------------
+
+root@qemux86-64:~# systemctl start hello
+
+root@qemux86-64:~# Jul 16 08:59:39 qemux86-64 systemd[1]: Started Hello World startup script.
+Jul 16 08:59:39 qemux86-64 hello[149]: Hello world!
+Jul 16 08:59:39 qemux86-64 hello[149]: Hello world!
+Jul 16 08:59:39 qemux86-64 hello[149]: Hello world!
+Jul 16 08:59:39 qemux86-64 hello[149]: Hello world!
+Jul 16 08:59:39 qemux86-64 hello[149]: Hello world!
+Jul 16 08:59:39 qemux86-64 hello[149]: Hello world!
+Jul 16 08:59:39 qemux86-64 hello[149]: Hello world!
+Jul 16 08:59:39 qemux86-64 hello[149]: Hello world!
+Jul 16 08:59:39 qemux86-64 hello[149]: Hello world!
+Jul 16 08:59:39 qemux86-64 hello[149]: Hello world!
+Jul 16 08:59:39 qemux86-64 systemd[1]: hello.service: Succeeded.
+
+-----------------------------------------------------------------------------------------------
+
+bitbake-getvar -r hello T
+
+#
+# $T [3 operations]
+#   set /home/kh/repo/poky/meta/conf/bitbake.conf:371
+#     "${WORKDIR}/temp"
+#   set /home/kh/repo/poky/meta/conf/documentation.conf:414
+#     [doc] "This variable points to a directory were BitBake places temporary files, which consist mostly of task logs and scripts, when building a particular recipe."
+#   override[task-clean]:set /home/kh/repo/poky/meta/classes/utility-tasks.bbclass:22
+#     "${LOG_DIR}/cleanlogs/${PN}"
+# pre-expansion value:
+#   "${WORKDIR}/temp"
+T="/home/kh/repo/poky/build/tmp/work/core2-64-poky-linux/hello/1.0-r0/temp"
+
+-----------------------------------------------------------------------------------------------
+
+ ~/repo/poky/build/tmp/work/core2-64-poky-linux/hello/1.0-r0/temp(dunfell)$ ls -l
+
+total 5272
+lrwxrwxrwx 1 kh kh     38 Jul 16 16:58 depsig.do_deploy_source_date_epoch -> depsig.do_deploy_source_date_epoch.840
+-rw-rw-r-- 1 kh kh    485 Jul 16 16:20 depsig.do_deploy_source_date_epoch.1318
+-rw-rw-r-- 1 kh kh    485 Jul 16 16:22 depsig.do_deploy_source_date_epoch.5254
+-rw-rw-r-- 1 kh kh    485 Jul 16 16:58 depsig.do_deploy_source_date_epoch.840
+-rw-rw-r-- 1 kh kh    485 Jul 15 22:59 depsig.do_deploy_source_date_epoch.9770
+lrwxrwxrwx 1 kh kh     21 Jul 16 16:58 depsig.do_package -> depsig.do_package.912
+-rw-r--r-- 1 kh kh   9993 Jul 16 16:22 depsig.do_package.4922
+-rw-r--r-- 1 kh kh   9993 Jul 16 16:22 depsig.do_package.5324
+-rw-r--r-- 1 kh kh   9993 Jul 16 16:58 depsig.do_package.912
+-rw-r--r-- 1 kh kh   7963 Jul 15 22:59 depsig.do_package.9851
+lrwxrwxrwx 1 kh kh     25 Jul 16 16:58 depsig.do_package_qa -> depsig.do_package_qa.1057
+-rw-r--r-- 1 kh kh    199 Jul 16 16:58 depsig.do_package_qa.1057
+-rw-r--r-- 1 kh kh    199 Jul 16 16:22 depsig.do_package_qa.5031
+-rw-r--r-- 1 kh kh    199 Jul 16 16:22 depsig.do_package_qa.5467
+-rw-r--r-- 1 kh kh    199 Jul 15 22:59 depsig.do_package_qa.9996
+lrwxrwxrwx 1 kh kh     32 Jul 16 16:58 depsig.do_package_write_rpm -> depsig.do_package_write_rpm.1056
+-rw-r--r-- 1 kh kh    883 Jul 16 16:58 depsig.do_package_write_rpm.1056
+-rw-r--r-- 1 kh kh    883 Jul 16 16:22 depsig.do_package_write_rpm.5030
+-rw-r--r-- 1 kh kh    883 Jul 16 16:22 depsig.do_package_write_rpm.5466
+-rw-r--r-- 1 kh kh    883 Jul 15 22:59 depsig.do_package_write_rpm.9995
+lrwxrwxrwx 1 kh kh     26 Jul 16 16:58 depsig.do_packagedata -> depsig.do_packagedata.1016
+-rw-rw-r-- 1 kh kh   4022 Jul 16 16:58 depsig.do_packagedata.1016
+-rw-rw-r-- 1 kh kh   4022 Jul 16 16:22 depsig.do_packagedata.4992
+-rw-rw-r-- 1 kh kh   4022 Jul 16 16:22 depsig.do_packagedata.5428
+-rw-rw-r-- 1 kh kh   4022 Jul 15 22:59 depsig.do_packagedata.9957
+
+-----------------------------------------------------------------------------------------------
+
+vi build/tmp/work/core2-64-poky-linux/hello/1.0-r0/temp/log.task_order
+
+do_fetch (9220): log.do_fetch.9220
+do_unpack (9221): log.do_unpack.9221
+do_prepare_recipe_sysroot (9222): log.do_prepare_recipe_sysroot.9222
+do_patch (9230): log.do_patch.9230
+do_deploy_source_date_epoch (9234): log.do_deploy_source_date_epoch.9234
+do_populate_lic (9235): log.do_populate_lic.9235
+do_configure (9271): log.do_configure.9271
+do_compile (9279): log.do_compile.9279
+do_install (9295): log.do_install.9295
+do_populate_sysroot (9307): log.do_populate_sysroot.9307
+do_package (9306): log.do_package.9306
+do_packagedata (9410): log.do_packagedata.9410
+do_package_write_rpm (9448): log.do_package_write_rpm.9448
+do_package_qa (9449): log.do_package_qa.9449
+
+
+
+
