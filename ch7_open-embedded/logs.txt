@@ -210,3 +210,239 @@ Summary: There were 6 WARNING messages shown.
 S = /home/kh/repo/poky/build/tmp/work/core2-64-poky-linux/vim/8.2.0-r0/vim-8.2.0
 B = /home/kh/repo/poky/build/tmp/work/core2-64-poky-linux/vim/8.2.0-r0/vim-8.2.0
 
+------------------------------------------------------------------------------------------
+
+bitbake core-image-minimal -C rootfs
+Loading cache: 100% |##################################################################| Time: 0:00:00
+Loaded 1334 entries from dependency cache.
+NOTE: Resolving any missing task queue dependencies
+
+Build Configuration:
+BB_VERSION           = "1.46.0"
+BUILD_SYS            = "x86_64-linux"
+NATIVELSBSTRING      = "universal"
+TARGET_SYS           = "x86_64-poky-linux"
+MACHINE              = "qemux86-64"
+DISTRO               = "poky"
+DISTRO_VERSION       = "3.1.33"
+TUNE_FEATURES        = "m64 core2"
+TARGET_FPU           = ""
+meta
+meta-poky
+meta-yocto-bsp
+meta-hello
+meta-nano            = "dunfell:63d05fc061006bf1a88630d6d91cdc76ea33fbf2"
+
+NOTE: Tainting hash to force rebuild of task /home/kh/repo/poky/meta/recipes-core/images/core-image-minimal.bb, do_rootfs
+WARNING: /home/kh/repo/poky/meta/recipes-core/images/core-image-minimal.bb:do_rootfs is tainted from a forced run
+Initialising tasks: 100% |#############################################################| Time: 0:00:01
+Checking sstate mirror object availability: 100% |#####################################| Time: 0:00:00
+Sstate summary: Wanted 150 Found 146 Missed 4 Current 1071 (97% match, 99% complete)
+NOTE: Executing Tasks
+NOTE: Tasks Summary: Attempted 3327 tasks of which 3317 didn't need to be rerun and all succeeded.
+NOTE: Writing buildhistory
+NOTE: Writing buildhistory took: 0 seconds
+
+------------------------------------------------------------------------------------------
+
+tree build/buildhistory
+
+build/buildhistory
+├── images
+│   └── qemux86_64
+│       └── glibc
+│           └── core-image-minimal
+│               ├── build-id.txt
+│               ├── depends-nokernel-nolibc-noupdate-nomodules.dot
+│               ├── depends-nokernel-nolibc-noupdate.dot
+│               ├── depends-nokernel-nolibc.dot
+│               ├── depends-nokernel.dot
+│               ├── depends.dot
+│               ├── files-in-image.txt
+│               ├── image-files
+│               │   └── etc
+│               │       └── passwd
+│               ├── image-info.txt
+│               ├── installed-package-names.txt
+│               ├── installed-package-sizes.txt
+│               └── installed-packages.txt
+├── metadata-revs
+└── packages
+    └── core2-64-poky-linux
+        ├── hello
+        │   ├── hello
+        │   │   ├── files-in-package.txt
+        │   │   ├── latest
+        │   │   ├── latest.pkg_postinst
+        │   │   └── latest.pkg_prerm
+        │   ├── hello-dbg
+        │   │   ├── files-in-package.txt
+        │   │   └── latest
+        │   ├── hello-dev
+        │   │   ├── files-in-package.txt
+        │   │   └── latest
+        │   ├── hello-doc
+        │   │   ├── files-in-package.txt
+        │   │   └── latest
+        │   ├── hello-locale
+        │   │   ├── files-in-package.txt
+        │   │   └── latest
+        │   ├── hello-src
+        │   │   ├── files-in-package.txt
+        │   │   └── latest
+        │   ├── hello-staticdev
+        │   │   ├── files-in-package.txt
+        │   │   └── latest
+        │   ├── latest
+        │   └── sysroot
+        └── nano
+            ├── latest
+            ├── nano
+            │   ├── files-in-package.txt
+            │   └── latest
+            ├── nano-dbg
+            │   ├── files-in-package.txt
+            │   └── latest
+            ├── nano-dev
+            │   ├── files-in-package.txt
+            │   └── latest
+            ├── nano-doc
+            │   ├── files-in-package.txt
+            │   └── latest
+            ├── nano-locale-bg
+            │   ├── files-in-package.txt
+            │   └── latest
+            ├── nano-locale-ca
+            │   ├── files-in-package.txt
+            │   └── latest
+            ├── nano-locale-cs
+            │   ├── files-in-package.txt
+            │   └── latest
+            ├── nano-locale-da
+            │   ├── files-in-package.txt
+            │   └── latest
+            ├── nano-locale-de
+            │   ├── files-in-package.txt
+            │   └── latest
+            ├── nano-locale-eo
+            │   ├── files-in-package.txt
+            │   └── latest
+            ├── nano-locale-es
+            │   ├── files-in-package.txt
+            │   └── latest
+            ├── nano-locale-eu
+            │   ├── files-in-package.txt
+            │   └── latest
+            ├── nano-locale-fi
+            │   ├── files-in-package.txt
+            │   └── latest
+            ├── nano-locale-fr
+            │   ├── files-in-package.txt
+            │   └── latest
+            ├── nano-locale-ga
+            │   ├── files-in-package.txt
+            │   └── latest
+            ├── nano-locale-gl
+            │   ├── files-in-package.txt
+            │   └── latest
+            ├── nano-locale-hr
+            │   ├── files-in-package.txt
+            │   └── latest
+            ├── nano-locale-hu
+            │   ├── files-in-package.txt
+            │   └── latest
+            ├── nano-locale-id
+            │   ├── files-in-package.txt
+            │   └── latest
+            ├── nano-locale-is
+            │   ├── files-in-package.txt
+            │   └── latest
+            ├── nano-locale-it
+            │   ├── files-in-package.txt
+            │   └── latest
+            ├── nano-locale-ja
+            │   ├── files-in-package.txt
+            │   └── latest
+            ├── nano-locale-ko
+            │   ├── files-in-package.txt
+            │   └── latest
+            ├── nano-locale-ms
+            │   ├── files-in-package.txt
+            │   └── latest
+            ├── nano-locale-nb
+            │   ├── files-in-package.txt
+            │   └── latest
+            ├── nano-locale-nl
+            │   ├── files-in-package.txt
+            │   └── latest
+            ├── nano-locale-pl
+            │   ├── files-in-package.txt
+            │   └── latest
+            ├── nano-locale-pt
+            │   ├── files-in-package.txt
+            │   └── latest
+            ├── nano-locale-pt-br
+            │   ├── files-in-package.txt
+            │   └── latest
+            ├── nano-locale-ro
+            │   ├── files-in-package.txt
+            │   └── latest
+            ├── nano-locale-ru
+            │   ├── files-in-package.txt
+            │   └── latest
+            ├── nano-locale-sk
+            │   ├── files-in-package.txt
+            │   └── latest
+            ├── nano-locale-sl
+            │   ├── files-in-package.txt
+            │   └── latest
+            ├── nano-locale-sr
+            │   ├── files-in-package.txt
+            │   └── latest
+            ├── nano-locale-sv
+            │   ├── files-in-package.txt
+            │   └── latest
+            ├── nano-locale-tr
+            │   ├── files-in-package.txt
+            │   └── latest
+            ├── nano-locale-uk
+            │   ├── files-in-package.txt
+            │   └── latest
+            ├── nano-locale-vi
+            │   ├── files-in-package.txt
+            │   └── latest
+            ├── nano-locale-zh-cn
+            │   ├── files-in-package.txt
+            │   └── latest
+            ├── nano-locale-zh-tw
+            │   ├── files-in-package.txt
+            │   └── latest
+            ├── nano-src
+            │   ├── files-in-package.txt
+            │   └── latest
+            ├── nano-staticdev
+            │   ├── files-in-package.txt
+            │   └── latest
+            └── sysroot
+
+59 directories, 117 files
+
+------------------------------------------------------------------------------------------
+
+buildhistory-diff
+
+Changes to images/qemux86_64/glibc/core-image-minimal (files-in-image.txt):
+  /lib/libudev.so.1.6.16 was added
+  /lib/libudev.so.1 was added
+  /lib/libusb-1.0.so.0.1.0 was added
+  /lib/libusb-1.0.so.0 was added
+  /usr/bin/lsusb.usbutils was added
+  /usr/bin/lsusb was added
+  /usr/bin/usb-devices was added
+  /usr/bin/usbhid-dump was added
+  /usr/lib/opkg/alternatives/lsusb was added
+Changes to images/qemux86_64/glibc/core-image-minimal (installed-package-names.txt):
+  libusb-1.0-0 was added
+  usbutils was added
+  libudev1 was added
+

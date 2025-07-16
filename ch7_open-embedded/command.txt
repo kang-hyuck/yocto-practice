@@ -1,0 +1,17 @@
+
+## check environments
+bitbake vim -c cleanall
+bitbake vim -c cleansstate
+bitbake-getvar -r vim WORKDIR
+bitbake-getvar -r vim S
+bitbake-getvar -r vim B
+
+## rebuild binary && create rootfs
+bitbake hello -c cleanall && bitbake hello
+bitbake nano -c cleanall && bitbake nano
+bitbake core-image-minimal -C rootfs
+
+## check buildhistory
+bitbake core-image-minimal
+buildhistory-diff
+
