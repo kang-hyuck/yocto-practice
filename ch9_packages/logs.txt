@@ -51,3 +51,88 @@ NOTE: Resolving any missing task queue dependencies
 NOTE: PN build list saved to 'pn-buildlist'
 NOTE: Task dependencies saved to 'task-depends.dot'
 
+------------------------------------------------------------------------------------------
+
+bitbake newhello
+Loading cache: 100% |####################################################################################################################################################################################################################################################| Time: 0:00:00
+Loaded 1334 entries from dependency cache.
+Parsing recipes: 100% |##################################################################################################################################################################################################################################################| Time: 0:00:00
+Parsing of 779 .bb files complete (777 cached, 2 parsed). 1335 targets, 38 skipped, 1 masked, 0 errors.
+NOTE: Resolving any missing task queue dependencies
+
+Build Configuration:
+BB_VERSION           = "1.46.0"
+BUILD_SYS            = "x86_64-linux"
+NATIVELSBSTRING      = "universal"
+TARGET_SYS           = "x86_64-poky-linux"
+MACHINE              = "qemux86-64"
+DISTRO               = "poky"
+DISTRO_VERSION       = "3.1.33"
+TUNE_FEATURES        = "m64 core2"
+TARGET_FPU           = ""
+meta
+meta-poky
+meta-yocto-bsp
+meta-hello
+meta-nano
+meta-kh              = "dunfell:63d05fc061006bf1a88630d6d91cdc76ea33fbf2"
+
+Initialising tasks: 100% |###############################################################################################################################################################################################################################################| Time: 0:00:00
+Sstate summary: Wanted 65 Found 58 Missed 7 Current 72 (89% match, 94% complete)
+NOTE: Executing Tasks
+NOTE: Tasks Summary: Attempted 551 tasks of which 536 didn't need to be rerun and all succeeded.
+NOTE: Writing buildhistory
+NOTE: Writing buildhistory took: 1 seconds
+
+------------------------------------------------------------------------------------------
+
+bitbake core-image-minimal -C rootfs
+Loading cache: 100% |####################################################################################################################################################################################################################################################| Time: 0:00:00
+Loaded 1334 entries from dependency cache.
+Parsing recipes: 100% |##################################################################################################################################################################################################################################################| Time: 0:00:00
+Parsing of 779 .bb files complete (778 cached, 1 parsed). 1335 targets, 38 skipped, 1 masked, 0 errors.
+NOTE: Resolving any missing task queue dependencies
+
+Build Configuration:
+BB_VERSION           = "1.46.0"
+BUILD_SYS            = "x86_64-linux"
+NATIVELSBSTRING      = "universal"
+TARGET_SYS           = "x86_64-poky-linux"
+MACHINE              = "qemux86-64"
+DISTRO               = "poky"
+DISTRO_VERSION       = "3.1.33"
+TUNE_FEATURES        = "m64 core2"
+TARGET_FPU           = ""
+meta
+meta-poky
+meta-yocto-bsp
+meta-hello
+meta-nano
+meta-kh              = "dunfell:63d05fc061006bf1a88630d6d91cdc76ea33fbf2"
+
+NOTE: Tainting hash to force rebuild of task /home/kh/repo/poky/meta/recipes-core/images/core-image-minimal.bb, do_rootfs  | ETA:  0:00:00
+WARNING: /home/kh/repo/poky/meta/recipes-core/images/core-image-minimal.bb:do_rootfs is tainted from a forced run          | ETA:  0:00:00
+Initialising tasks: 100% |#################################################################################################| Time: 0:00:01
+Checking sstate mirror object availability: 100% |#########################################################################| Time: 0:00:00
+Sstate summary: Wanted 249 Found 245 Missed 4 Current 1001 (98% match, 99% complete)
+NOTE: Executing Tasks
+NOTE: Tasks Summary: Attempted 3414 tasks of which 3404 didn't need to be rerun and all succeeded.
+NOTE: Writing buildhistory
+NOTE: Writing buildhistory took: 1 seconds
+
+Summary: There was 1 WARNING message shown.
+
+------------------------------------------------------------------------------------------
+
+root@qemux86-64:~# hello
+New Hello world!
+New Hello world!
+New Hello world!
+New Hello world!
+New Hello world!
+New Hello world!
+New Hello world!
+New Hello world!
+New Hello world!
+New Hello world!
+
