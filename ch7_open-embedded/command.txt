@@ -20,3 +20,10 @@ du -sh build/tmp/work/core2-64-poky-linux/nano/6.0-r0/
 bitbake nano -c cleanall && bitbake nano
 du -sh build/tmp/work/core2-64-poky-linux/nano/6.0-r0/
 
+## create & check external source
+bitbake nano -c cleanall && bitbake nano
+mkdir -p external-source/nano
+cd external-source/nano
+cp -r ~/repo/poky/build/tmp/work/core2-64-poky-linux/nano/6.0-r0/* .
+vi ~/repo/poky/build/tmp/work/core2-64-poky-linux/nano/6.0-r0/temp/log.task_order
+

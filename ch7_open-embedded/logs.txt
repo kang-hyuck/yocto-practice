@@ -448,6 +448,7 @@ Changes to images/qemux86_64/glibc/core-image-minimal (installed-package-names.t
 
 ------------------------------------------------------------------------------------------
 
+## rm-work
 (no rm_work)
 ~/repo/poky/build/tmp/work/core2-64-poky-linux/nano(dunfell)$ du -sh 6.0-r0/
 539M    6.0-r0/
@@ -457,4 +458,90 @@ Changes to images/qemux86_64/glibc/core-image-minimal (installed-package-names.t
 2.2M    6.0-r0/
 
 ------------------------------------------------------------------------------------------
+
+## external source
+bitbake nano -c cleanall && bitbake nano
+
+Parsing recipes: 100% |#####################################################################################################################################################################################| Time: 0:00:05
+Parsing of 778 .bb files complete (0 cached, 778 parsed). 1334 targets, 38 skipped, 0 masked, 0 errors.
+Removing 1 recipes from the core2-64 sysroot: 100% |########################################################################################################################################################| Time: 0:00:00
+Removing 1 recipes from the qemux86_64 sysroot: 100% |######################################################################################################################################################| Time: 0:00:00
+NOTE: Resolving any missing task queue dependencies
+
+Build Configuration:
+BB_VERSION           = "1.46.0"
+BUILD_SYS            = "x86_64-linux"
+NATIVELSBSTRING      = "universal"
+TARGET_SYS           = "x86_64-poky-linux"
+MACHINE              = "qemux86-64"
+DISTRO               = "poky"
+DISTRO_VERSION       = "3.1.33"
+TUNE_FEATURES        = "m64 core2"
+TARGET_FPU           = ""
+meta
+meta-poky
+meta-yocto-bsp
+meta-hello
+meta-nano            = "dunfell:63d05fc061006bf1a88630d6d91cdc76ea33fbf2"
+
+Initialising tasks: 100% |##################################################################################################################################################################################| Time: 0:00:00
+Sstate summary: Wanted 0 Found 0 Missed 0 Current 0 (0% match, 0% complete)
+NOTE: No setscene tasks
+NOTE: Executing Tasks
+NOTE: Tasks Summary: Attempted 4 tasks of which 0 didn't need to be rerun and all succeeded.
+NOTE: Writing buildhistory
+NOTE: Writing buildhistory took: 0 seconds
+NOTE: Reconnecting to bitbake server...
+NOTE: Previous bitbake instance shutting down?, waiting to retry...
+NOTE: Retrying server connection (#1)...
+Loading cache: 100% |#######################################################################################################################################################################################| Time: 0:00:00
+Loaded 1333 entries from dependency cache.
+Parsing recipes: 100% |#####################################################################################################################################################################################| Time: 0:00:00
+Parsing of 778 .bb files complete (777 cached, 1 parsed). 1334 targets, 38 skipped, 0 masked, 0 errors.
+NOTE: Resolving any missing task queue dependencies
+
+Build Configuration:
+BB_VERSION           = "1.46.0"
+BUILD_SYS            = "x86_64-linux"
+NATIVELSBSTRING      = "universal"
+TARGET_SYS           = "x86_64-poky-linux"
+MACHINE              = "qemux86-64"
+DISTRO               = "poky"
+DISTRO_VERSION       = "3.1.33"
+TUNE_FEATURES        = "m64 core2"
+TARGET_FPU           = ""
+meta
+meta-poky
+meta-yocto-bsp
+meta-hello
+meta-nano            = "dunfell:63d05fc061006bf1a88630d6d91cdc76ea33fbf2"
+
+Initialising tasks: 100% |##################################################################################################################################################################################| Time: 0:00:01
+Checking sstate mirror object availability: 100% |##########################################################################################################################################################| Time: 0:00:00
+Sstate summary: Wanted 200 Found 199 Missed 1 Current 478 (99% match, 99% complete)
+NOTE: Executing Tasks
+NOTE: nano: compiling from external source tree /home/kh/repo/poky/external-source/nano
+NOTE: Tasks Summary: Attempted 2154 tasks of which 2142 didn't need to be rerun and all succeeded.
+NOTE: Writing buildhistory
+NOTE: Writing buildhistory took: 1 seconds
+
+
+------------------------------------------------------------------------------------------
+
+vi ~/repo/poky/build/tmp/work/core2-64-poky-linux/nano/6.0-r0/temp/log.task_order
+no do_fetch, do_unpack, do_patch
+
+do_cleansstate (25682): log.do_cleansstate.25682
+do_cleanall (25683): log.do_cleanall.25683
+do_deploy_source_date_epoch (25875): log.do_deploy_source_date_epoch.25875
+do_prepare_recipe_sysroot (25876): log.do_prepare_recipe_sysroot.25876
+do_populate_lic (25877): log.do_populate_lic.25877
+do_configure (25934): log.do_configure.25934
+do_compile (30844): log.do_compile.30844
+do_install (31484): log.do_install.31484
+do_populate_sysroot (31849): log.do_populate_sysroot.31849
+do_package (31848): log.do_package.31848
+do_packagedata (31967): log.do_packagedata.31967
+do_package_write_rpm (32301): log.do_package_write_rpm.32301
+do_package_qa (32302): log.do_package_qa.32302
 
