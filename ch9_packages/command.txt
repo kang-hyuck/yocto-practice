@@ -1,0 +1,15 @@
+
+## add feature && create rootfs
+vi meta/classes/image.bbclass +56
+bitbake core-image-minimal -C rootfs
+runqemu
+
+## check PACKAGE_ARCH
+bitbake-getvar -r hello PACKAGE_ARCH
+bitbake-getvar -r nano PACKAGE_ARCH
+bitbake-getvar -r core-image-minimal PACKAGE_ARCH
+
+## check package list in package group
+bitbake -g packagegroup-kh
+vi pn-buildlist 
+

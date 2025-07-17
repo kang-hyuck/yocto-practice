@@ -1,0 +1,53 @@
+
+bitbake-getvar -r hello PACKAGE_ARCH
+#
+# $PACKAGE_ARCH [2 operations]
+#   set /home/kh/repo/poky/meta/conf/bitbake.conf:151
+#     [_defaultval] "${TUNE_PKGARCH}"
+#   set /home/kh/repo/poky/meta/conf/documentation.conf:308
+#     [doc] "The architecture of the resulting package or packages."
+# pre-expansion value:
+#   "${TUNE_PKGARCH}"
+PACKAGE_ARCH="core2-64"
+
+bitbake-getvar -r nano PACKAGE_ARCH
+#
+# $PACKAGE_ARCH [2 operations]
+#   set /home/kh/repo/poky/meta/conf/bitbake.conf:151
+#     [_defaultval] "${TUNE_PKGARCH}"
+#   set /home/kh/repo/poky/meta/conf/documentation.conf:308
+#     [doc] "The architecture of the resulting package or packages."
+# pre-expansion value:
+#   "${TUNE_PKGARCH}"
+PACKAGE_ARCH="core2-64"
+
+bitbake-getvar -r core-image-minimal PACKAGE_ARCH
+#
+# $PACKAGE_ARCH [3 operations]
+#   set /home/kh/repo/poky/meta/conf/bitbake.conf:151
+#     [_defaultval] "${TUNE_PKGARCH}"
+#   set /home/kh/repo/poky/meta/conf/documentation.conf:308
+#     [doc] "The architecture of the resulting package or packages."
+#   set /home/kh/repo/poky/meta/classes/image.bbclass:95
+#     "${MACHINE_ARCH}"
+# pre-expansion value:
+#   "${MACHINE_ARCH}"
+PACKAGE_ARCH="qemux86_64"
+
+------------------------------------------------------------------------------------------
+
+buildhistory-diff
+Changes to images/qemux86_64/glibc/core-image-minimal (installed-package-names.txt):
+  packagegroup-kh was added
+
+------------------------------------------------------------------------------------------
+
+bitbake -g packagegroup-kh
+Loading cache: 100% |################################################################################################| Time: 0:00:00
+Loaded 1334 entries from dependency cache.
+Parsing recipes: 100% |##############################################################################################| Time: 0:00:00
+Parsing of 779 .bb files complete (778 cached, 1 parsed). 1335 targets, 38 skipped, 0 masked, 0 errors.
+NOTE: Resolving any missing task queue dependencies
+NOTE: PN build list saved to 'pn-buildlist'
+NOTE: Task dependencies saved to 'task-depends.dot'
+
