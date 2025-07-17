@@ -15,3 +15,8 @@ bitbake core-image-minimal -C rootfs
 bitbake core-image-minimal
 buildhistory-diff
 
+## check rm_work
+du -sh build/tmp/work/core2-64-poky-linux/nano/6.0-r0/
+bitbake nano -c cleanall && bitbake nano
+du -sh build/tmp/work/core2-64-poky-linux/nano/6.0-r0/
+

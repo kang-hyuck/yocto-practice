@@ -446,3 +446,15 @@ Changes to images/qemux86_64/glibc/core-image-minimal (installed-package-names.t
   usbutils was added
   libudev1 was added
 
+------------------------------------------------------------------------------------------
+
+(no rm_work)
+~/repo/poky/build/tmp/work/core2-64-poky-linux/nano(dunfell)$ du -sh 6.0-r0/
+539M    6.0-r0/
+
+(use rm_work)
+~/repo/poky/build/tmp/work/core2-64-poky-linux/nano(dunfell)$ du -sh 6.0-r0/
+2.2M    6.0-r0/
+
+------------------------------------------------------------------------------------------
+
