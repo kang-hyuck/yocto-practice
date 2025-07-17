@@ -1,0 +1,13 @@
+do_cleansstate (25682): log.do_cleansstate.25682
+do_cleanall (25683): log.do_cleanall.25683
+do_deploy_source_date_epoch (25875): log.do_deploy_source_date_epoch.25875
+do_prepare_recipe_sysroot (25876): log.do_prepare_recipe_sysroot.25876
+do_populate_lic (25877): log.do_populate_lic.25877
+do_configure (25934): log.do_configure.25934
+do_compile (30844): log.do_compile.30844
+do_install (31484): log.do_install.31484
+do_populate_sysroot (31849): log.do_populate_sysroot.31849
+do_package (31848): log.do_package.31848
+do_packagedata (31967): log.do_packagedata.31967
+do_package_write_rpm (32301): log.do_package_write_rpm.32301
+do_package_qa (32302): log.do_package_qa.32302

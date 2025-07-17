@@ -1,0 +1,116 @@
+
+bitbake-getvar -r nano STAGING_DIR_TARGET
+#
+# $STAGING_DIR_TARGET
+#   set /home/kh/repo/poky/meta/conf/bitbake.conf:404
+#     "${RECIPE_SYSROOT}"
+STAGING_DIR_TARGET="/home/kh/repo/poky/build/tmp/work/core2-64-poky-linux/nano/6.0-r0/recipe-sysroot"
+
+------------------------------------------------------------------------------------------
+
+bitbake-getvar -r nano STAGING_DIR_NATIVE
+#
+# $STAGING_DIR_NATIVE
+#   set /home/kh/repo/poky/meta/conf/bitbake.conf:381
+#     "${RECIPE_SYSROOT_NATIVE}"
+STAGING_DIR_NATIVE="/home/kh/repo/poky/build/tmp/work/core2-64-poky-linux/nano/6.0-r0/recipe-sysroot-native"
+
+------------------------------------------------------------------------------------------
+
+~/repo/poky/build/tmp/work/core2-64-poky-linux/nano/6.0-r0(dunfell)$ tree recipe-sysroot* -L 1
+recipe-sysroot
+├── lib
+├── sysroot-providers
+└── usr
+recipe-sysroot-native
+├── bin
+├── etc
+├── installeddeps
+├── sbin
+├── sysroot-providers
+├── usr
+└── var
+
+------------------------------------------------------------------------------------------
+
+~/repo/poky/build/tmp/work/core2-64-poky-linux/nano/6.0-r0/recipe-sysroot(dunfell)$ tree sysroot-providers/
+sysroot-providers/
+├── gcc-runtime
+├── glibc
+├── libgcc
+├── libtool-cross
+├── linux-libc-headers
+├── ncurses
+├── opkg-utils
+├── virtual_libc
+├── virtual_libiconv
+└── virtual_x86_64-poky-linux-compilerlibs
+
+0 directories, 10 files
+
+------------------------------------------------------------------------------------------
+
+~/repo/poky/build/tmp/work/core2-64-poky-linux/nano/6.0-r0/recipe-sysroot-native(dunfell)$ tree sysroot-providers/
+sysroot-providers/
+├── attr-native
+├── autoconf-native
+├── automake-native
+├── binutils-cross-x86_64
+├── bzip2-native
+├── bzip2-replacement-native
+├── db-native
+├── dbus-native
+├── dwarfsrcfiles-native
+├── e2fsprogs-native
+├── elfutils-native
+├── expat-native
+├── file-native
+├── file-replacement-native
+├── flex-native
+├── gcc-cross-x86_64
+├── gdbm-native
+├── gettext-minimal-native
+├── gettext-native
+├── gmp-native
+├── gnu-config-native
+├── libarchive-native
+├── libcap-ng-native
+├── libffi-native
+├── libmpc-native
+├── libnsl2-native
+├── libpcre2-native
+├── libtirpc-native
+├── libtool-native
+├── lzo-native
+├── m4-native
+├── mpfr-native
+├── ncurses-native
+├── openssl-native
+├── patch-native
+├── patch-replacement-native
+├── pcre2-native
+├── perl-native
+├── pkgconfig-native
+├── popt-native
+├── pseudo-native
+├── python3-native
+├── python3-rpm-native
+├── quilt-native
+├── readline-native
+├── rpm-native
+├── sqlite3-native
+├── texinfo-dummy-native
+├── util-linux-native
+├── virtual_fakeroot-native
+├── virtual_gettext-native
+├── virtual_librpc-native
+├── virtual_x86_64-poky-linux-binutils
+├── virtual_x86_64-poky-linux-g++
+├── virtual_x86_64-poky-linux-gcc
+├── xz-native
+└── zlib-native
+
+0 directories, 57 files
+
+------------------------------------------------------------------------------------------
+
