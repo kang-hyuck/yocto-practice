@@ -1,0 +1,25 @@
+
+## use core-image class
+tree meta-kh/
+meta-kh/
+├── classes
+│   └── kh-base-image.bbclass  // ++++
+├── conf
+│   └── layer.conf  // ++
+├── recipes-core
+│   ├── image
+│   │   ├── core-image-minimal.bbappend
+│   │   └── kh-image.bb  // ++++
+│   └── packagegroups
+│       └── packagegroup-kh.bb
+└── template
+    ├── bblayers.conf.sample
+    ├── conf-notes.txt
+    └── local.conf.sample
+
+## create kh-image && run
+source buildenv.sh
+bitbake kh-image
+runqemu kh-image nographic
+login: kh / Passwd: 1234
+

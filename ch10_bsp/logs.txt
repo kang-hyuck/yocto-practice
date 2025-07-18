@@ -1,0 +1,75 @@
+
+source buildenv.sh
+
+### Shell environment set up for builds. ###
+Hello! This is kh yocto examples!
+You can now run 'bitbake <target>'
+
+Common targets are:
+    kh-image
+
+You can also run generated qemu images with a command like 'runqemu qemux86'
+
+Other commonly useful commands are:
+ - 'devtool' and 'recipetool' handle common recipe tasks
+ - 'bitbake-layers' handles common layer tasks
+ - 'oe-pkgdata-util' handles common target package tasks
+
+------------------------------------------------------------------------------------------
+
+bitbake kh-image
+Loading cache: 100% |#############################################################################################################################################################################| Time: 0:00:00
+Loaded 1335 entries from dependency cache.
+Parsing recipes: 100% |###########################################################################################################################################################################| Time: 0:00:00
+Parsing of 780 .bb files complete (779 cached, 1 parsed). 1336 targets, 38 skipped, 1 masked, 0 errors.
+NOTE: Resolving any missing task queue dependencies
+
+Build Configuration:
+BB_VERSION           = "1.46.0"
+BUILD_SYS            = "x86_64-linux"
+NATIVELSBSTRING      = "universal"
+TARGET_SYS           = "x86_64-poky-linux"
+MACHINE              = "qemux86-64"
+DISTRO               = "poky"
+DISTRO_VERSION       = "3.1.33"
+TUNE_FEATURES        = "m64 core2"
+TARGET_FPU           = ""
+meta
+meta-poky
+meta-yocto-bsp
+meta-hello
+meta-nano
+meta-kh              = "dunfell:63d05fc061006bf1a88630d6d91cdc76ea33fbf2"
+
+Initialising tasks: 100% |########################################################################################################################################################################| Time: 0:00:01
+Checking sstate mirror object availability: 100% |################################################################################################################################################| Time: 0:00:00
+Sstate summary: Wanted 601 Found 146 Missed 455 Current 1076 (24% match, 72% complete)
+NOTE: Executing Tasks
+NOTE: Tasks Summary: Attempted 4320 tasks of which 3496 didn't need to be rerun and all succeeded.
+
+------------------------------------------------------------------------------------------
+
+runqemu kh-image nographic
+
+[  OK  ] Started NFS Mount Daemon.
+         Starting NFS server and services...
+[  OK  ] Started NFS status monitor for NFSv2/3 locking..
+[  OK  ] Started Avahi mDNS/DNS-SD Stack.
+[  OK  ] Started Login Service.
+[  OK  ] Reached target Multi-User System.
+         Starting Update UTMP about System Runlevel Changes...
+[  OK  ] Started Update UTMP about System Runlevel Changes.
+[   16.253872] NFSD: Using /var/lib/nfs/v4recovery as the NFSv4 state recovery directory
+[   16.267892] NFSD: Using legacy client tracking operations.
+[   16.268067] NFSD: starting 90-second grace period (net f0000098)
+[  OK  ] Started NFS server and services.
+
+Poky (Yocto Project Reference Distro) 3.1.33 qemux86-64 ttyS0
+
+qemux86-64 login: kh
+Password:
+qemux86-64:~$
+qemux86-64:~$ su
+qemux86-64:/home/kh#
+qemux86-64:/home/kh#
+
