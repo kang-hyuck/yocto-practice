@@ -13,3 +13,7 @@ bitbake-getvar -r core-image-minimal PACKAGE_ARCH
 bitbake -g packagegroup-kh
 vi pn-buildlist 
 
+## create custom configs
+cd meta-poky/conf
+cp bblayers.conf.sample local.conf.sample conf-notes.txt ../../meta-kh/template/
+

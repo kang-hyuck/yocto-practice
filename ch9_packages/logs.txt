@@ -136,3 +136,25 @@ New Hello world!
 New Hello world!
 New Hello world!
 
+------------------------------------------------------------------------------------------
+tree meta-kh/
+meta-kh/
+├── conf
+│   └── layer.conf
+├── recipes-core
+│   ├── image
+│   │   └── core-image-minimal.bbappend
+│   └── packagegroups
+│       └── packagegroup-kh.bb
+└── template
+    ├── bblayers.conf.sample
+    ├── conf-notes.txt
+    └── local.conf.sample
+
+tree build2/
+build2/
+└── conf
+    ├── bblayers.conf
+    ├── local.conf
+    └── templateconf.cfg
+
