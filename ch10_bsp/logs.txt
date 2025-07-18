@@ -73,3 +73,79 @@ qemux86-64:~$ su
 qemux86-64:/home/kh#
 qemux86-64:/home/kh#
 
+------------------------------------------------------------------------------------------
+
+bitbake-getvar -r core-image-minimal OVERRIDES
+#
+# $OVERRIDES [2 operations]
+#   set /home/kh/repo/poky/meta/conf/bitbake.conf:751
+#     "${TARGET_OS}:${TRANSLATED_TARGET_ARCH}:pn-${PN}:${MACHINEOVERRIDES}:${DISTROOVERRIDES}:${CLASSOVERRIDE}${LIBCOVERRIDE}:forcevariable"
+#   set /home/kh/repo/poky/meta/conf/documentation.conf:303
+#     [doc] "BitBake uses OVERRIDES to control what variables are overridden after BitBake parses recipes and configuration files."
+# pre-expansion value:
+#   "${TARGET_OS}:${TRANSLATED_TARGET_ARCH}:pn-${PN}:${MACHINEOVERRIDES}:${DISTROOVERRIDES}:${CLASSOVERRIDE}${LIBCOVERRIDE}:forcevariable"
+OVERRIDES="linux:x86-64:pn-core-image-minimal:qemuall:qemux86-64:poky:class-target:libc-glibc:forcevariable"
+
+------------------------------------------------------------------------------------------
+
+bitbake kh-image
+WARNING: You are running bitbake under WSLv2, this works properly but you should optimize your VHDX file eventually to avoid running out of storage space
+Parsing recipes: 100% |###########################################################################################################################################################################| Time: 0:00:07
+Parsing of 780 .bb files complete (0 cached, 780 parsed). 1336 targets, 38 skipped, 1 masked, 0 errors.
+NOTE: Resolving any missing task queue dependencies
+
+Build Configuration:
+BB_VERSION           = "1.46.0"
+BUILD_SYS            = "x86_64-linux"
+NATIVELSBSTRING      = "ubuntu-22.04"
+TARGET_SYS           = "x86_64-poky-linux"
+MACHINE              = "kh"
+DISTRO               = "poky"
+DISTRO_VERSION       = "3.1.33"
+TUNE_FEATURES        = "m64 core2"
+TARGET_FPU           = ""
+meta
+meta-poky
+meta-yocto-bsp
+meta-hello
+meta-nano
+meta-kh
+meta-kh-bsp          = "dunfell:63d05fc061006bf1a88630d6d91cdc76ea33fbf2"
+
+NOTE: Fetching uninative binary shim http://downloads.yoctoproject.org/releases/uninative/4.4/x86_64-nativesdk-libc-4.4.tar.xz;sha256sum=d81c54284be2bb886931fc87281d58177a2cd381cf99d1981f8923039a72a302 (will check PREMIRRORS first)
+Initialising tasks: 100% |########################################################################################################################################################################| Time: 0:00:01
+Checking sstate mirror object availability: 100% |################################################################################################################################################| Time: 0:00:01
+Sstate summary: Wanted 1639 Found 609 Missed 1030 Current 0 (37% match, 0% complete)
+NOTE: Executing Tasks
+WARNING: mesa-2_20.0.2-r0 do_fetch: Failed to fetch URL https://mesa.freedesktop.org/archive/mesa-20.0.2.tar.xz, attempting MIRRORS if available
+Currently  7 running tasks (2591 of 4263)  60% |#################################################################################################                                                               |
+0: mesa-2_20.0.2-r0 do_fetch (pid 15611)  30% |#############################################                                                                                                            | 16.3K/s
+1: gnutls-3.6.14-r0 do_fetch (pid 7405)  95% |##################################################################################################################################################        | 16.1K/s
+WARNING: wpa-supplicant-2.9-r0 do_fetch: Failed to fetch URL http://w1.fi/releases/wpa_supplicant-2.9.tar.gz, attempting MIRRORS if available
+NOTE: Tasks Summary: Attempted 4263 tasks of which 1536 didn't need to be rerun and all succeeded.
+
+------------------------------------------------------------------------------------------
+
+[  OK  ] Started Serial Getty on ttyS0.
+[  OK  ] Started Serial Getty on ttyS1.
+[  OK  ] Reached target Login Prompts.
+         Starting Login Service...
+[  OK  ] Started Telephony service.
+[  OK  ] Started Network Name Resolution.
+[  OK  ] Reached target Network.
+[  OK  ] Reached target Host and Network Name Lookups.
+         Starting Avahi mDNS/DNS-SD Stack...
+[  OK  ] Started Avahi mDNS/DNS-SD Stack.
+[  OK  ] Started Login Service.
+[  OK  ] Reached target Multi-User System.
+         Starting Update UTMP about System Runlevel Changes...
+[  OK  ] Started Update UTMP about System Runlevel Changes.
+
+Poky (Yocto Project Reference Distro) 3.1.33 kh ttyS0
+
+kh login: kh
+Password:
+kh:~$
+kh:~$
+kh:~$
+
