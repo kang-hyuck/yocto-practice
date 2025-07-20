@@ -55,3 +55,32 @@ meta-kh-bsp/
         │   ├── kernel-driver.cfg
         │   └── kh-scc.scc  // ++++
         └── linux-yocto_5.4.bbappend  // --++
+
+## create kernel recipe
+bitbake -c kernel_configme linux-yocto
+ls -l build2/tmp/work/kh-poky-linux/linux-yocto/5.4.219+gitAUTOINC+ecd382f347_35826e154e-r0/linux-kh-standard-build/.config
+(copy .config to meta-kh-bsp/recipes-kernel/linux/file/defconfig)
+git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+git show v5.4-rc8
+(check commit hash for v5.4-rc8 tag)
+ tree meta-kh-bsp/
+meta-kh-bsp/
+├── conf
+│   ├── layer.conf
+│   └── machine
+│       └── kh.conf  // ++
+└── recipes-kernel
+    └── linux
+        ├── file
+        │   ├── 0001-misc-add-test-driver.patch
+        │   ├── defconfig  // ++++
+        │   ├── kernel-driver.cfg
+        │   └── kh-scc.scc
+        ├── linux-kh-kernel.bb  // ++++
+        └── linux-yocto_5.4.bbappend
+
+bitbake linux-kh-kernel
+bitbake kh-image -C rootfs
+runqemu kh-image nographic
+uname -r
+

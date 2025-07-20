@@ -139,3 +139,72 @@ git remote -vv
 origin  git://git.yoctoproject.org/poky (fetch)
 origin  git://git.yoctoproject.org/poky (push)
 
+------------------------------------------------------------------------------------------
+
+bitbake -c kernel_configme linux-yocto
+Loading cache: 100% |#######################################################################################################################################################| Time: 0:00:00
+Loaded 1336 entries from dependency cache.
+NOTE: Resolving any missing task queue dependencies
+
+Build Configuration:
+BB_VERSION           = "1.46.0"
+BUILD_SYS            = "x86_64-linux"
+NATIVELSBSTRING      = "universal"
+TARGET_SYS           = "x86_64-poky-linux"
+MACHINE              = "kh"
+DISTRO               = "poky"
+DISTRO_VERSION       = "3.1.33"
+TUNE_FEATURES        = "m64 core2"
+TARGET_FPU           = ""
+meta
+meta-poky
+meta-yocto-bsp
+meta-hello
+meta-nano
+meta-kh
+meta-kh-bsp          = "dunfell:63d05fc061006bf1a88630d6d91cdc76ea33fbf2"
+
+WARNING: /home/kh/repo/poky/meta/recipes-kernel/linux/linux-yocto_5.4.bb:do_fetch is tainted from a forced run                                                              | ETA:  0:00:00
+Initialising tasks: 100% |##################################################################################################################################################| Time: 0:00:00
+Sstate summary: Wanted 32 Found 32 Missed 0 Current 33 (100% match, 100% complete)
+NOTE: Executing Tasks
+NOTE: Tasks Summary: Attempted 299 tasks of which 299 didn't need to be rerun and all succeeded.
+
+Summary: There was 1 WARNING message shown.
+
+------------------------------------------------------------------------------------------
+
+bitbake linux-kh-kernel
+Parsing recipes: 100% |####################################################################################################| Time: 0:00:05
+Parsing of 781 .bb files complete (0 cached, 781 parsed). 1337 targets, 39 skipped, 1 masked, 0 errors.
+Removing 1 recipes from the kh sysroot: 100% |#############################################################################| Time: 0:00:01
+NOTE: Resolving any missing task queue dependencies
+
+Build Configuration:
+BB_VERSION           = "1.46.0"
+BUILD_SYS            = "x86_64-linux"
+NATIVELSBSTRING      = "universal"
+TARGET_SYS           = "x86_64-poky-linux"
+MACHINE              = "kh"
+DISTRO               = "poky"
+DISTRO_VERSION       = "3.1.33"
+TUNE_FEATURES        = "m64 core2"
+TARGET_FPU           = ""
+meta
+meta-poky
+meta-yocto-bsp
+meta-hello
+meta-nano
+meta-kh
+meta-kh-bsp          = "dunfell:63d05fc061006bf1a88630d6d91cdc76ea33fbf2"
+
+Initialising tasks: 100% |#################################################################################################| Time: 0:00:00
+Sstate summary: Wanted 66 Found 57 Missed 9 Current 61 (86% match, 92% complete)
+NOTE: Executing Tasks
+NOTE: Tasks Summary: Attempted 549 tasks of which 519 didn't need to be rerun and all succeeded.
+
+------------------------------------------------------------------------------------------
+
+kh:~$ uname -r
+5.4.0-rc8-kh-linux
+
