@@ -1,0 +1,36 @@
+
+## configs kernel
+bitbake -c menuconfig virtual/kernel
+bitbake -c kernel_configme virtual/kernel
+bitbake -c savedefconfig virtual/kernel
+
+## create patch
+bitbake-getvar -r virtual/kernel STAGING_KERNEL_DIR
+(cd STAGING_KERNEL_DIR && code work)
+git commit test_driver.c Kconfig Makefile
+git commit
+git format-patch -1
+
+## apply patch
+cp build2/tmp/work/kh-poky-linux/linux-yocto/5.4.219+gitAUTOINC+ecd382f347_35826e154e-r0/fragment.cfg  meta-kh-bsp/recipes-kernel/linux/file/kernel-driver.cfg
+echo "CONFIG_TEST_DRIVER=y" >> meta-kh-bsp/recipes-kernel/linux/file/kernel-driver.cfg
+mv build2/tmp/work-shared/kh/kernel-source/0001-misc-add-test-driver.patch  meta-kh-bsp/recipes-kernel/linux/file/
+tree meta-kh-bsp/
+meta-kh-bsp/
+├── conf
+│   ├── layer.conf
+│   └── machine
+│       └── kh.conf
+└── recipes-kernel
+    └── linux
+        ├── file
+        │   ├── 0001-misc-add-test-driver.patch  // ++++
+        │   └── kernel-driver.cfg  // ++++
+        └── linux-yocto_5.4.bbappend  // ++
+
+## build & run
+bitbake virtual/kernel -C fetch
+bitbake kh-image
+runqemu kh-image nographic
+dmesg | grep "This is "
+

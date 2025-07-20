@@ -1,0 +1,114 @@
+
+bitbake -c menuconfig virtual/kernel
+Loading cache: 100% |####################################################################################################################################################################################################################################################| Time: 0:00:00
+Loaded 1336 entries from dependency cache.
+NOTE: Resolving any missing task queue dependencies
+
+Build Configuration:
+BB_VERSION           = "1.46.0"
+BUILD_SYS            = "x86_64-linux"
+NATIVELSBSTRING      = "universal"
+TARGET_SYS           = "x86_64-poky-linux"
+MACHINE              = "kh"
+DISTRO               = "poky"
+DISTRO_VERSION       = "3.1.33"
+TUNE_FEATURES        = "m64 core2"
+TARGET_FPU           = ""
+meta
+meta-poky
+meta-yocto-bsp
+meta-hello
+meta-nano
+meta-kh
+meta-kh-bsp          = "dunfell:63d05fc061006bf1a88630d6d91cdc76ea33fbf2"
+
+Initialising tasks: 100% |###############################################################################################################################################################################################################################################| Time: 0:00:00
+Sstate summary: Wanted 47 Found 47 Missed 0 Current 49 (100% match, 100% complete)
+NOTE: Executing Tasks
+NOTE: Tasks Summary: Attempted 438 tasks of which 437 didn't need to be rerun and all succeeded.
+
+------------------------------------------------------------------------------------------
+
+bitbake -c diffconfig virtual/kernel
+Loading cache: 100% |######################################################################################################| Time: 0:00:00
+Loaded 1336 entries from dependency cache.
+NOTE: Resolving any missing task queue dependencies
+
+Build Configuration:
+BB_VERSION           = "1.46.0"
+BUILD_SYS            = "x86_64-linux"
+NATIVELSBSTRING      = "universal"
+TARGET_SYS           = "x86_64-poky-linux"
+MACHINE              = "kh"
+DISTRO               = "poky"
+DISTRO_VERSION       = "3.1.33"
+TUNE_FEATURES        = "m64 core2"
+TARGET_FPU           = ""
+meta
+meta-poky
+meta-yocto-bsp
+meta-hello
+meta-nano
+meta-kh
+meta-kh-bsp          = "dunfell:63d05fc061006bf1a88630d6d91cdc76ea33fbf2"
+
+Initialising tasks: 100% |#################################################################################################| Time: 0:00:00
+Sstate summary: Wanted 32 Found 32 Missed 0 Current 33 (100% match, 100% complete)
+NOTE: Executing Tasks
+Config fragment has been dumped into:
+ /home/kh/repo/poky/build2/tmp/work/kh-poky-linux/linux-yocto/5.4.219+gitAUTOINC+ecd382f347_35826e154e-r0/fragment.cfg
+NOTE: Tasks Summary: Attempted 300 tasks of which 299 didn't need to be rerun and all succeeded.
+
+------------------------------------------------------------------------------------------
+
+bitbake-getvar -r virtual/kernel STAGING_KERNEL_DIR
+#
+# $STAGING_KERNEL_DIR [2 operations]
+#   set /home/kh/repo/poky/meta/conf/bitbake.conf:449
+#     "${TMPDIR}/work-shared/${MACHINE}/kernel-source"
+#   set /home/kh/repo/poky/meta/conf/documentation.conf:397
+#     [doc] "The directory with kernel headers that are required to build out-of-tree modules."
+# pre-expansion value:
+#   "${TMPDIR}/work-shared/${MACHINE}/kernel-source"
+STAGING_KERNEL_DIR="/home/kh/repo/poky/build2/tmp/work-shared/kh/kernel-source"
+
+------------------------------------------------------------------------------------------
+
+bitbake virtual/kernel -C fetch
+Loading cache: 100% |######################################################################################################| Time: 0:00:00
+Loaded 1336 entries from dependency cache.
+NOTE: Resolving any missing task queue dependencies
+
+Build Configuration:
+BB_VERSION           = "1.46.0"
+BUILD_SYS            = "x86_64-linux"
+NATIVELSBSTRING      = "universal"
+TARGET_SYS           = "x86_64-poky-linux"
+MACHINE              = "kh"
+DISTRO               = "poky"
+DISTRO_VERSION       = "3.1.33"
+TUNE_FEATURES        = "m64 core2"
+TARGET_FPU           = ""
+meta
+meta-poky
+meta-yocto-bsp
+meta-hello
+meta-nano
+meta-kh
+meta-kh-bsp          = "dunfell:63d05fc061006bf1a88630d6d91cdc76ea33fbf2"
+
+NOTE: Tainting hash to force rebuild of task /home/kh/repo/poky/meta/recipes-kernel/linux/linux-yocto_5.4.bb, do_fetch     | ETA:  0:00:00
+WARNING: /home/kh/repo/poky/meta/recipes-kernel/linux/linux-yocto_5.4.bb:do_fetch is tainted from a forced run             | ETA:  0:00:00
+WARNING: /home/kh/repo/poky/meta/recipes-kernel/linux/linux-yocto_5.4.bb:do_compile is tainted from a forced run
+Initialising tasks: 100% |#################################################################################################| Time: 0:00:00
+Sstate summary: Wanted 66 Found 57 Missed 9 Current 61 (86% match, 92% complete)
+NOTE: Executing Tasks
+NOTE: Tasks Summary: Attempted 549 tasks of which 519 didn't need to be rerun and all succeeded.
+
+Summary: There were 2 WARNING messages shown.
+
+------------------------------------------------------------------------------------------
+
+kh:~$ dmesg | grep "This is "
+[    1.403216] This is test driver!
+
