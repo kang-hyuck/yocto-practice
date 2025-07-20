@@ -112,3 +112,30 @@ Summary: There were 2 WARNING messages shown.
 kh:~$ dmesg | grep "This is "
 [    1.403216] This is test driver!
 
+------------------------------------------------------------------------------------------
+
+$ tree build2/tmp/work/kh-poky-linux/linux-yocto/5.4.219+gitAUTOINC+ecd382f347_35826e154e-r0/kernel-meta/ -L 1
+kernel-meta/
+├── 00-README
+├── COPYING.GPLv2
+├── COPYING.MIT
+├── arch
+├── backports
+├── bsp
+├── cfg
+├── cgl
+├── features
+├── kern-features.rc
+├── ktypes
+├── kver
+├── patches
+├── scripts
+├── small
+└── staging
+
+------------------------------------------------------------------------------------------
+
+git remote -vv
+origin  git://git.yoctoproject.org/poky (fetch)
+origin  git://git.yoctoproject.org/poky (push)
+

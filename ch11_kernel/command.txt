@@ -34,3 +34,24 @@ bitbake kh-image
 runqemu kh-image nographic
 dmesg | grep "This is "
 
+## use devshell
+bitbake virtual/kernel -c devshell
+bitbake u-boot -c devshell
+
+## check kernel metadata
+tree build2/tmp/work/kh-poky-linux/linux-yocto/5.4.219+gitAUTOINC+ecd382f347_35826e154e-r0/kernel-meta/ -L 1
+vi build2/tmp/work/kh-poky-linux/linux-yocto/5.4.219+gitAUTOINC+ecd382f347_35826e154e-r0/kernel-meta/bsp/beaglebone/beaglebone.scc
+git remote -vv
+tree meta-kh-bsp/
+meta-kh-bsp/
+├── conf
+│   ├── layer.conf
+│   └── machine
+│       └── kh.conf
+└── recipes-kernel
+    └── linux
+        ├── file
+        │   ├── 0001-misc-add-test-driver.patch
+        │   ├── kernel-driver.cfg
+        │   └── kh-scc.scc  // ++++
+        └── linux-yocto_5.4.bbappend  // --++
