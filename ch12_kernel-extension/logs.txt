@@ -140,3 +140,164 @@ kh:~$ dmesg | grep "hello"
 [    6.246061] hello kernel module!
 [    6.246143] hello kernel module!
 
+------------------------------------------------------------------------------------------
+
+bitbake kh-kernel-mod -c cleanall && bitbake kh-kernel-mod
+Parsing recipes: 100% |################################################################| Time: 0:00:14
+Parsing of 782 .bb files complete (0 cached, 782 parsed). 1338 targets, 39 skipped, 1 masked, 0 errors.
+NOTE: Resolving any missing task queue dependencies
+
+Build Configuration:
+BB_VERSION           = "1.46.0"
+BUILD_SYS            = "x86_64-linux"
+NATIVELSBSTRING      = "universal"
+TARGET_SYS           = "x86_64-poky-linux"
+MACHINE              = "kh"
+DISTRO               = "poky"
+DISTRO_VERSION       = "3.1.33"
+TUNE_FEATURES        = "m64 core2"
+TARGET_FPU           = ""
+meta
+meta-poky
+meta-yocto-bsp
+meta-hello
+meta-nano
+meta-kh
+meta-kh-bsp          = "dunfell:63d05fc061006bf1a88630d6d91cdc76ea33fbf2"
+
+Initialising tasks: 100% |#############################################################| Time: 0:00:00
+Sstate summary: Wanted 0 Found 0 Missed 0 Current 0 (0% match, 0% complete)
+NOTE: No setscene tasks
+NOTE: Executing Tasks
+NOTE: Tasks Summary: Attempted 3 tasks of which 0 didn't need to be rerun and all succeeded.
+NOTE: Reconnecting to bitbake server...
+NOTE: Previous bitbake instance shutting down?, waiting to retry...
+NOTE: Retrying server connection (#1)...
+Loading cache: 100% |##################################################################| Time: 0:00:00
+Loaded 1337 entries from dependency cache.
+Parsing recipes: 100% |################################################################| Time: 0:00:02
+Parsing of 782 .bb files complete (781 cached, 1 parsed). 1338 targets, 39 skipped, 1 masked, 0 errors.
+NOTE: Resolving any missing task queue dependencies
+
+Build Configuration:
+BB_VERSION           = "1.46.0"
+BUILD_SYS            = "x86_64-linux"
+NATIVELSBSTRING      = "universal"
+TARGET_SYS           = "x86_64-poky-linux"
+MACHINE              = "kh"
+DISTRO               = "poky"
+DISTRO_VERSION       = "3.1.33"
+TUNE_FEATURES        = "m64 core2"
+TARGET_FPU           = ""
+meta
+meta-poky
+meta-yocto-bsp
+meta-hello
+meta-nano
+meta-kh
+meta-kh-bsp          = "dunfell:63d05fc061006bf1a88630d6d91cdc76ea33fbf2"
+
+Initialising tasks: 100% |#############################################################| Time: 0:00:00
+Sstate summary: Wanted 67 Found 60 Missed 7 Current 86 (89% match, 95% complete)
+NOTE: Executing Tasks
+NOTE: Tasks Summary: Attempted 637 tasks of which 622 didn't need to be rerun and all succeeded.
+
+------------------------------------------------------------------------------------------
+
+bitbake virtual/kernel && bitbake kh-image -C rootfs
+Loading cache: 100% |######################################################################################################| Time: 0:00:00
+Loaded 1337 entries from dependency cache.
+Parsing recipes: 100% |####################################################################################################| Time: 0:00:02
+Parsing of 782 .bb files complete (781 cached, 1 parsed). 1338 targets, 39 skipped, 1 masked, 0 errors.
+NOTE: Resolving any missing task queue dependencies
+
+Build Configuration:
+BB_VERSION           = "1.46.0"
+BUILD_SYS            = "x86_64-linux"
+NATIVELSBSTRING      = "universal"
+TARGET_SYS           = "x86_64-poky-linux"
+MACHINE              = "kh"
+DISTRO               = "poky"
+DISTRO_VERSION       = "3.1.33"
+TUNE_FEATURES        = "m64 core2"
+TARGET_FPU           = ""
+meta
+meta-poky
+meta-yocto-bsp
+meta-hello
+meta-nano
+meta-kh
+meta-kh-bsp          = "dunfell:63d05fc061006bf1a88630d6d91cdc76ea33fbf2"
+
+Initialising tasks: 100% |#################################################################################################| Time: 0:00:00
+Sstate summary: Wanted 57 Found 57 Missed 0 Current 61 (100% match, 100% complete)
+NOTE: Executing Tasks
+NOTE: Tasks Summary: Attempted 543 tasks of which 543 didn't need to be rerun and all succeeded.
+NOTE: Reconnecting to bitbake server...
+NOTE: Previous bitbake instance shutting down?, waiting to retry...
+NOTE: Retrying server connection (#1)...
+Loading cache: 100% |######################################################################################################| Time: 0:00:00
+Loaded 1337 entries from dependency cache.
+Parsing recipes: 100% |####################################################################################################| Time: 0:00:02
+Parsing of 782 .bb files complete (781 cached, 1 parsed). 1338 targets, 39 skipped, 1 masked, 0 errors.
+NOTE: Resolving any missing task queue dependencies
+
+Build Configuration:
+BB_VERSION           = "1.46.0"
+BUILD_SYS            = "x86_64-linux"
+NATIVELSBSTRING      = "universal"
+TARGET_SYS           = "x86_64-poky-linux"
+MACHINE              = "kh"
+DISTRO               = "poky"
+DISTRO_VERSION       = "3.1.33"
+TUNE_FEATURES        = "m64 core2"
+TARGET_FPU           = ""
+meta
+meta-poky
+meta-yocto-bsp
+meta-hello
+meta-nano
+meta-kh
+meta-kh-bsp          = "dunfell:63d05fc061006bf1a88630d6d91cdc76ea33fbf2"
+
+NOTE: Tainting hash to force rebuild of task /home/kh/repo/poky/meta-kh/recipes-core/image/kh-image.bb, do_rootfs          | ETA:  0:00:00
+WARNING: /home/kh/repo/poky/meta-kh/recipes-core/image/kh-image.bb:do_rootfs is tainted from a forced run                  | ETA:  0:00:00
+Initialising tasks: 100% |#################################################################################################| Time: 0:00:01
+Checking sstate mirror object availability: 100% |#########################################################################| Time: 0:00:00
+Sstate summary: Wanted 142 Found 139 Missed 3 Current 1502 (97% match, 99% complete)
+NOTE: Executing Tasks
+NOTE: Tasks Summary: Attempted 4287 tasks of which 4277 didn't need to be rerun and all succeeded.
+
+Summary: There was 1 WARNING message shown.
+
+------------------------------------------------------------------------------------------
+
+ls -l build2/tmp/work/kh-poky-linux/kh-kernel-mod/1.0-r0/packages-split
+total 32
+drwxr-xr-x 4 kh kh 4096 Apr  6  2011 kernel-module-kh-kernel-mod-5.4.0-rc8-kh-linux
+drwxr-xr-x 2 kh kh 4096 Apr  6  2011 kh-kernel-mod
+drwxr-xr-x 2 kh kh 4096 Apr  6  2011 kh-kernel-mod-dbg
+drwxr-xr-x 3 kh kh 4096 Apr  6  2011 kh-kernel-mod-dev
+drwxr-xr-x 2 kh kh 4096 Apr  6  2011 kh-kernel-mod-doc
+drwxr-xr-x 2 kh kh 4096 Apr  6  2011 kh-kernel-mod-locale
+drwxr-xr-x 2 kh kh 4096 Apr  6  2011 kh-kernel-mod-src
+drwxr-xr-x 2 kh kh 4096 Apr  6  2011 kh-kernel-mod-staticdev
+
+------------------------------------------------------------------------------------------
+
+kh:~$ cd /etc/modules-load.d/
+kh:/etc/modules-load.d$ ls -l
+-rw-r--r--    1 root     root            14 Mar  9  2018 kh-kernel-mod.conf
+kh:/etc/modules-load.d$
+kh:/etc/modules-load.d$
+kh:/etc/modules-load.d$ vi kh-kernel-mod.conf
+kh:/etc/modules-load.d$
+kh:/etc/modules-load.d$ systemctl status systemd-modules-load
+* systemd-modules-load.service - Load Kernel Modules
+     Loaded: loaded (/lib/systemd/system/systemd-modules-load.service; static; vendor preset: disabled)
+     Active: active (exited) since Mon 2025-07-21 13:22:19 UTC; 2min 17s ago
+       Docs: man:systemd-modules-load.service(8)
+             man:modules-load.d(5)
+    Process: 136 ExecStart=/lib/systemd/systemd-modules-load (code=exited, status=0/SUCCESS)
+   Main PID: 136 (code=exited, status=0/SUCCESS)
+

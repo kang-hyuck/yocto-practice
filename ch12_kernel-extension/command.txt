@@ -93,3 +93,52 @@ bitbake kh-image -C rootfs
 runqemu kh-image nographic
 dmesg | grep "hello"
 
+## set kernel module install
+tree meta-kh
+meta-kh
+├── classes
+│   └── kh-base-image.bbclass
+├── conf
+│   └── layer.conf
+├── recipes-core
+│   ├── image
+│   │   ├── core-image-minimal.bbappend
+│   │   └── kh-image.bb  // --
+│   └── packagegroups
+│       └── packagegroup-kh.bb
+└── template
+    ├── bblayers.conf.sample
+    ├── conf-notes.txt
+    └── local.conf.sample
+
+meta-kh-bsp/
+├── append
+│   └── linux-kh-kernel.bbappend
+├── conf
+│   ├── layer.conf
+│   └── machine
+│       └── kh.conf  // ++
+├── recipes-kernel
+│   └── linux
+│       ├── file
+│       │   ├── 0001-misc-add-test-driver.patch
+│       │   ├── defconfig
+│       │   ├── kernel-driver.cfg
+│       │   └── kh-scc.scc
+│       ├── linux-kh-kernel.bb  // ++
+│       └── linux-yocto_5.4.bbappend
+└── recipes-kernel-mod
+    ├── file
+    │   ├── COPYING
+    │   ├── Makefile
+    │   └── kh-kernel-mod.c
+    └── kh-kernel-mod.bb
+
+ls -l build2/tmp/work/kh-poky-linux/kh-kernel-mod/1.0-r0/packages-split
+bitbake kh-kernel-mod -c cleanall && bitbake kh-kernel-mod
+bitbake virtual/kernel && bitbake kh-image -C rootfs
+runqemu kh-image nographic
+dmesg | grep "hello"
+ls -l /etc/modules-load.d/
+systemctl status systemd-modules-load
+
