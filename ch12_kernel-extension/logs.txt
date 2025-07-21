@@ -1,0 +1,29 @@
+
+bitbake-getvar -r kh-image STAGING_KERNEL_DIR
+#
+# $STAGING_KERNEL_DIR [2 operations]
+#   set /home/kh/repo/poky/meta/conf/bitbake.conf:449
+#     "${TMPDIR}/work-shared/${MACHINE}/kernel-source"
+#   set /home/kh/repo/poky/meta/conf/documentation.conf:397
+#     [doc] "The directory with kernel headers that are required to build out-of-tree modules."
+# pre-expansion value:
+#   "${TMPDIR}/work-shared/${MACHINE}/kernel-source"
+STAGING_KERNEL_DIR="/home/kh/repo/poky/build2/tmp/work-shared/kh/kernel-source"
+
+------------------------------------------------------------------------------------------
+
+ bitbake-getvar -r linux-kh-kernel COREBASE
+#
+# $COREBASE [3 operations]
+#   set /home/kh/repo/poky/meta/conf/layer.conf:20
+#     "${@os.path.normpath("${LAYERDIR}/../")}"
+#   set data_smart.py:945 [expandVarref]
+#     "${@os.path.normpath("/home/kh/repo/poky/meta/../")}"
+#   set /home/kh/repo/poky/meta/conf/documentation.conf:124
+#     [doc] "Specifies the parent directory of the OpenEmbedded Core Metadata layer (i.e. meta)."
+# pre-expansion value:
+#   "${@os.path.normpath("/home/kh/repo/poky/meta/../")}"
+COREBASE="/home/kh/repo/poky"
+
+------------------------------------------------------------------------------------------
+

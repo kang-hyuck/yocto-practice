@@ -1,0 +1,27 @@
+
+## create kernel external source
+bitbake-getvar -r kh-image STAGING_KERNEL_DIR
+cp -a /home/kh/repo/poky/build2/tmp/work-shared/kh/kernel-source .
+tree meta-kh-bsp/
+meta-kh-bsp/
+├── append
+│   └── linux-kh-kernel.bbappend  // ++++
+├── conf
+│   ├── layer.conf  // ++
+│   └── machine
+│       └── kh.conf
+└── recipes-kernel
+    └── linux
+        ├── file
+        │   ├── 0001-misc-add-test-driver.patch
+        │   ├── defconfig
+        │   ├── kernel-driver.cfg
+        │   └── kh-scc.scc
+        ├── linux-kh-kernel.bb
+        └── linux-yocto_5.4.bbappend
+
+bitbake linux-kh-kernel -c cleanall && bitbake linux-kh-kernel
+bitbake kh-image -C rootfs
+cd build2/tmp/work-shared/kh/
+ls -l
+
