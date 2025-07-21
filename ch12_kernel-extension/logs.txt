@@ -27,3 +27,77 @@ COREBASE="/home/kh/repo/poky"
 
 ------------------------------------------------------------------------------------------
 
+bitbake virtual/kernel -C fetch
+Loading cache: 100% |#############################################################################################################################################################################| Time: 0:00:00
+Loaded 1336 entries from dependency cache.
+Parsing recipes: 100% |###########################################################################################################################################################################| Time: 0:00:02
+Parsing of 781 .bb files complete (779 cached, 2 parsed). 1337 targets, 39 skipped, 1 masked, 0 errors.
+NOTE: Resolving any missing task queue dependencies
+
+Build Configuration:
+BB_VERSION           = "1.46.0"
+BUILD_SYS            = "x86_64-linux"
+NATIVELSBSTRING      = "universal"
+TARGET_SYS           = "x86_64-poky-linux"
+MACHINE              = "kh"
+DISTRO               = "poky"
+DISTRO_VERSION       = "3.1.33"
+TUNE_FEATURES        = "m64 core2"
+TARGET_FPU           = ""
+meta
+meta-poky
+meta-yocto-bsp
+meta-hello
+meta-nano
+meta-kh
+meta-kh-bsp          = "dunfell:63d05fc061006bf1a88630d6d91cdc76ea33fbf2"
+
+WARNING: Task do_fetch does not exist, invalidating this task will have no effect###################                                                                                              | ETA:  0:00:00
+NOTE: Tainting hash to force rebuild of task /home/kh/repo/poky/meta-kh-bsp/recipes-kernel/linux/linux-kh-kernel.bb, do_fetch
+Initialising tasks: 100% |########################################################################################################################################################################| Time: 0:00:00
+Sstate summary: Wanted 57 Found 57 Missed 0 Current 61 (100% match, 100% complete)
+NOTE: Executing Tasks
+NOTE: linux-kh-kernel: compiling from external source tree /home/kh/repo/poky/external-source/kernel-source
+NOTE: Tasks Summary: Attempted 543 tasks of which 519 didn't need to be rerun and all succeeded.
+
+Summary: There was 1 WARNING message shown.
+
+------------------------------------------------------------------------------------------
+
+bitbake kh-image -C rootfs
+Loading cache: 100% |#############################################################################################################################################################################| Time: 0:00:00
+Loaded 1336 entries from dependency cache.
+Parsing recipes: 100% |###########################################################################################################################################################################| Time: 0:00:02
+Parsing of 781 .bb files complete (780 cached, 1 parsed). 1337 targets, 39 skipped, 1 masked, 0 errors.
+NOTE: Resolving any missing task queue dependencies
+
+Build Configuration:
+BB_VERSION           = "1.46.0"
+BUILD_SYS            = "x86_64-linux"
+NATIVELSBSTRING      = "universal"
+TARGET_SYS           = "x86_64-poky-linux"
+MACHINE              = "kh"
+DISTRO               = "poky"
+DISTRO_VERSION       = "3.1.33"
+TUNE_FEATURES        = "m64 core2"
+TARGET_FPU           = ""
+meta
+meta-poky
+meta-yocto-bsp
+meta-hello
+meta-nano
+meta-kh
+meta-kh-bsp          = "dunfell:63d05fc061006bf1a88630d6d91cdc76ea33fbf2"
+
+NOTE: Tainting hash to force rebuild of task /home/kh/repo/poky/meta-kh/recipes-core/image/kh-image.bb, do_rootfs                                                                                 | ETA:  0:00:00
+WARNING: /home/kh/repo/poky/meta-kh/recipes-core/image/kh-image.bb:do_rootfs is tainted from a forced run                                                                                         | ETA:  0:00:00
+Initialising tasks: 100% |########################################################################################################################################################################| Time: 0:00:01
+Checking sstate mirror object availability: 100% |################################################################################################################################################| Time: 0:00:00
+Sstate summary: Wanted 142 Found 139 Missed 3 Current 1488 (97% match, 99% complete)
+NOTE: Executing Tasks
+NOTE: Tasks Summary: Attempted 4257 tasks of which 4166 didn't need to be rerun and all succeeded.
+
+Summary: There was 1 WARNING message shown.
+
+------------------------------------------------------------------------------------------
+

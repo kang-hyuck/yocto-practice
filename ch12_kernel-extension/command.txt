@@ -25,3 +25,26 @@ bitbake kh-image -C rootfs
 cd build2/tmp/work-shared/kh/
 ls -l
 
+## use kernel internal configs
+meta-kh-bsp/
+├── append
+│   └── linux-kh-kernel.bbappend
+├── conf
+│   ├── layer.conf
+│   └── machine
+│       └── kh.conf
+└── recipes-kernel
+    └── linux
+        ├── file
+        │   ├── 0001-misc-add-test-driver.patch
+        │   ├── defconfig
+        │   ├── kernel-driver.cfg
+        │   └── kh-scc.scc
+        ├── linux-kh-kernel.bb  // --++
+        └── linux-yocto_5.4.bbappend
+cp meta-kh-bsp/recipes-kernel/linux/file/defconfig /home/kh/repo/poky/build2/tmp/work-shared/kh/kernel-source/arch/x86/configs/kh-defconfig
+ls -l /home/kh/repo/poky/build2/tmp/work-shared/kh/kernel-source/arch/x86/configs/
+bitbake virtual/kernel -C fetch
+bitbake kh-image -C rootfs
+runqemu kh-image nographic
+
