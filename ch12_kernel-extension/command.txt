@@ -48,3 +48,48 @@ bitbake virtual/kernel -C fetch
 bitbake kh-image -C rootfs
 runqemu kh-image nographic
 
+## create external kernel module
+meta-kh-bsp/
+├── append
+│   └── linux-kh-kernel.bbappend
+├── conf
+│   ├── layer.conf  // ++
+│   └── machine
+│       └── kh.conf
+├── recipes-kernel
+│   └── linux
+│       ├── file
+│       │   ├── 0001-misc-add-test-driver.patch
+│       │   ├── defconfig
+│       │   ├── kernel-driver.cfg
+│       │   └── kh-scc.scc
+│       ├── linux-kh-kernel.bb
+│       └── linux-yocto_5.4.bbappend
+└── recipes-kernel-mod
+    ├── file
+    │   ├── COPYING  // ++++
+    │   ├── Makefile  // ++++
+    │   └── kh-kernel-mod.c  // ++++
+    └── kh-kernel-mod.bb  // ++++
+
+meta-kh
+├── classes
+│   └── kh-base-image.bbclass
+├── conf
+│   └── layer.conf
+├── recipes-core
+│   ├── image
+│   │   ├── core-image-minimal.bbappend
+│   │   └── kh-image.bb  // ++
+│   └── packagegroups
+│       └── packagegroup-kh.bb
+└── template
+    ├── bblayers.conf.sample
+    ├── conf-notes.txt
+    └── local.conf.sample
+
+bitbake kh-kernel-mod
+bitbake kh-image -C rootfs
+runqemu kh-image nographic
+dmesg | grep "hello"
+

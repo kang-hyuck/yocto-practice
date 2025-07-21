@@ -101,3 +101,42 @@ Summary: There was 1 WARNING message shown.
 
 ------------------------------------------------------------------------------------------
 
+bitbake kh-kernel-mod
+Loading cache: 100% |#############################################################################################################################################################################| Time: 0:00:00
+Loaded 1337 entries from dependency cache.
+Parsing recipes: 100% |###########################################################################################################################################################################| Time: 0:00:02
+Parsing of 782 .bb files complete (781 cached, 1 parsed). 1338 targets, 39 skipped, 1 masked, 0 errors.
+NOTE: Resolving any missing task queue dependencies
+
+Build Configuration:
+BB_VERSION           = "1.46.0"
+BUILD_SYS            = "x86_64-linux"
+NATIVELSBSTRING      = "universal"
+TARGET_SYS           = "x86_64-poky-linux"
+MACHINE              = "kh"
+DISTRO               = "poky"
+DISTRO_VERSION       = "3.1.33"
+TUNE_FEATURES        = "m64 core2"
+TARGET_FPU           = ""
+meta
+meta-poky
+meta-yocto-bsp
+meta-hello
+meta-nano
+meta-kh
+meta-kh-bsp          = "dunfell:63d05fc061006bf1a88630d6d91cdc76ea33fbf2"
+
+Initialising tasks: 100% |########################################################################################################################################################################| Time: 0:00:00
+Sstate summary: Wanted 70 Found 60 Missed 10 Current 83 (85% match, 93% complete)
+NOTE: Executing Tasks
+NOTE: Tasks Summary: Attempted 637 tasks of which 619 didn't need to be rerun and all succeeded.
+
+------------------------------------------------------------------------------------------
+
+kh:~$ dmesg | grep "hello"
+[    6.245741] hello kernel module!
+[    6.245959] hello kernel module!
+[    6.246016] hello kernel module!
+[    6.246061] hello kernel module!
+[    6.246143] hello kernel module!
+

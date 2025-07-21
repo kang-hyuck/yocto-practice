@@ -1,0 +1,4 @@
+define KFEATURE_DESCRIPTION "test for .scc"
+
+kconf non-hardware kernel-driver.cfg
+patch 0001-misc-add-test-driver.patch
