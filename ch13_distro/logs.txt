@@ -1,0 +1,46 @@
+
+bitbake kh-image
+Parsing recipes: 100% |####################################################################################################| Time: 0:00:17
+Parsing of 782 .bb files complete (0 cached, 782 parsed). 1338 targets, 39 skipped, 1 masked, 0 errors.                        | ETA:  0:0
+NOTE: Resolving any missing task queue dependencies
+
+Build Configuration:
+BB_VERSION           = "1.46.0"
+BUILD_SYS            = "x86_64-linux"
+NATIVELSBSTRING      = "universal"
+TARGET_SYS           = "x86_64-kh-linux"
+MACHINE              = "kh"
+DISTRO               = "kh-distro"
+DISTRO_VERSION       = "3.1.33"
+TUNE_FEATURES        = "m64 core2"
+TARGET_FPU           = ""
+meta
+meta-poky
+meta-yocto-bsp
+meta-hello
+meta-nano
+meta-kh
+meta-kh-bsp          = "dunfell:63d05fc061006bf1a88630d6d91cdc76ea33fbf2"
+
+Initialising tasks: 100% |#################################################################################################| Time: 0:00:02
+Checking sstate mirror object availability: 100% |#########################################################################| Time: 0:00:01
+Sstate summary: Wanted 1425 Found 120 Missed 1305 Current 273 (8% match, 23% complete)
+NOTE: Executing Tasks
+NOTE: linux-kh-kernel: compiling from external source tree /home/kh/repo/poky/external-source/kernel-source
+NOTE: Tasks Summary: Attempted 4394 tasks of which 1469 didn't need to be rerun and all succeeded.
+
+------------------------------------------------------------------------------------------
+
+[  OK  ] Started Update UTMP about System Runlevel Changes.
+[   17.473412] NFSD: Using /var/lib/nfs/v4recovery as the NFSv4 state recovery directory
+[   17.485492] NFSD: Using legacy client tracking operations.
+[   17.485825] NFSD: starting 90-second grace period (net f0000098)
+[  OK  ] Started NFS server and services.
+
+Kang Hyuck Distro 3.1.33 kh ttyS0
+
+kh login: kh
+Password:
+kh:~$
+kh:~$
+

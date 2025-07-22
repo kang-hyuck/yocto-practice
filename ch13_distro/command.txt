@@ -1,0 +1,22 @@
+
+## create distro
+buildenv.sh  // ++
+tree meta-kh
+meta-kh
+├── classes
+│   └── kh-base-image.bbclass
+├── conf
+│   ├── distro
+│   │   └── kh-distro.conf  // ++++
+│   └── layer.conf
+├── recipes-core
+│   ├── image
+│   │   ├── core-image-minimal.bbappend
+│   │   └── kh-image.bb
+│   └── packagegroups
+│       └── packagegroup-kh.bb
+└── template
+    ├── bblayers.conf.sample
+    ├── conf-notes.txt
+    └── local.conf.sample
+

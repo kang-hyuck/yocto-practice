@@ -1,0 +1,13 @@
+#!/bin/bash
+
+function build_target() {
+    source oe-init-build-env build2
+}
+
+ROOT=$PWD
+export TEMPLATECONF=${ROOT}/meta-kh/template/
+export MACHINE="kh"
+export DISTRO="kh-distro"
+
+build_target
+
