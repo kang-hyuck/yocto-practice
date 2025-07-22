@@ -1,0 +1,26 @@
+
+## cerate && run image
+buildenv.sh  // ++
+tree meta-kh-project/
+meta-kh-project/
+├── appends
+│   └── nano_6.0.bbappend  // ++++
+├── conf
+│   └── layer.conf  // ++++
+├── recipes-core
+│   ├── image
+│   │   └── kh-image.bbappend  // ++++
+│   └── packagegroups
+│       └── packagegroup-kh.bb  // ++++
+├── recipes-hello
+│   ├── hello.bb  // ++++
+│   └── source
+│       ├── COPYING  // ++++
+│       ├── hello.c  // ++++
+│       └── hello.service  // ++++
+└── recipes-nano
+    └── nano_6.0.bb  // ++++
+
+bitbake kh-image
+runqemu kh-image nographic
+
