@@ -1,0 +1,260 @@
+
+bitbake-getvar -r packagegroup-kh COMMON_LICENSE_DIR
+#
+# $COMMON_LICENSE_DIR [2 operations]
+#   set /home/kh/repo/poky/meta/conf/distro/include/default-distrovars.inc:24
+#     [_defaultval] "${COREBASE}/meta/files/common-licenses"
+#   set /home/kh/repo/poky/meta/conf/documentation.conf:114
+#     [doc] "Points to meta/files/common-licenses in the Source Directory, which is where generic license files reside."
+# pre-expansion value:
+#   "${COREBASE}/meta/files/common-licenses"
+COMMON_LICENSE_DIR="/home/kh/repo/poky/meta/files/common-licenses"
+
+------------------------------------------------------------------------------------------
+
+md5sum /home/kh/repo/poky/meta/files/common-licenses/MIT
+0835ade698e0bcf8506ecda2f7b4f302  /home/kh/repo/poky/meta/files/common-licenses/MIT
+
+------------------------------------------------------------------------------------------
+
+bitbake kh-lib
+Loading cache: 100% |#############################################################################################################################################################################| Time: 0:00:00
+Loaded 1339 entries from dependency cache.
+Parsing recipes: 100% |###########################################################################################################################################################################| Time: 0:00:11
+Parsing of 784 .bb files complete (782 cached, 2 parsed). 1340 targets, 39 skipped, 0 masked, 0 errors.
+NOTE: Resolving any missing task queue dependencies
+
+Build Configuration:
+BB_VERSION           = "1.46.0"
+BUILD_SYS            = "x86_64-linux"
+NATIVELSBSTRING      = "universal"
+TARGET_SYS           = "x86_64-kh-linux"
+MACHINE              = "kh"
+DISTRO               = "kh-distro"
+DISTRO_VERSION       = "3.1.33"
+TUNE_FEATURES        = "m64 core2"
+TARGET_FPU           = ""
+meta
+meta-poky
+meta-yocto-bsp
+meta-kh
+meta-kh-bsp
+meta-kh-project      = "dunfell:63d05fc061006bf1a88630d6d91cdc76ea33fbf2"
+
+Initialising tasks: 100% |########################################################################################################################################################################| Time: 0:00:00
+Sstate summary: Wanted 57 Found 50 Missed 7 Current 80 (87% match, 94% complete)
+NOTE: Executing Tasks
+NOTE: Tasks Summary: Attempted 551 tasks of which 536 didn't need to be rerun and all succeeded.
+
+------------------------------------------------------------------------------------------
+
+bitbake-getvar -r kh-lib D
+#
+# $D [2 operations]
+#   set /home/kh/repo/poky/meta/conf/bitbake.conf:372
+#     "${WORKDIR}/image"
+#   set /home/kh/repo/poky/meta/conf/documentation.conf:129
+#     [doc] "The destination directory."
+# pre-expansion value:
+#   "${WORKDIR}/image"
+D="/home/kh/repo/poky/build2/tmp/work/core2-64-kh-linux/kh-lib/1.0-r0/image"
+
+------------------------------------------------------------------------------------------
+
+tree /home/kh/repo/poky/build2/tmp/work/core2-64-kh-linux/kh-lib/1.0-r0/image
+/home/kh/repo/poky/build2/tmp/work/core2-64-kh-linux/kh-lib/1.0-r0/image
+└── usr
+    ├── include
+    │   └── func.h
+    └── lib
+        ├── libtest.so -> libtest.so.1
+        ├── libtest.so.1 -> libtest.so.1.0
+        └── libtest.so.1.0
+
+------------------------------------------------------------------------------------------
+
+tree /home/kh/repo/poky/build2/tmp/work/core2-64-kh-linux/kh-lib/1.0-r0/packages-split/
+/home/kh/repo/poky/build2/tmp/work/core2-64-kh-linux/kh-lib/1.0-r0/packages-split/
+├── kh-lib
+│   └── usr
+│       └── lib
+│           ├── libtest.so.1 -> libtest.so.1.0
+│           └── libtest.so.1.0
+├── kh-lib-dbg
+│   └── usr
+│       └── lib
+├── kh-lib-dev
+│   └── usr
+│       ├── include
+│       │   └── func.h
+│       └── lib
+│           └── libtest.so -> libtest.so.1
+├── kh-lib-doc
+├── kh-lib-locale
+├── kh-lib-src
+├── kh-lib-staticdev
+└── kh-lib.shlibdeps
+
+------------------------------------------------------------------------------------------
+
+tree build2/tmp/work/core2-64-kh-linux/kh-lib/1.0-r0/deploy-rpms/
+build2/tmp/work/core2-64-kh-linux/kh-lib/1.0-r0/deploy-rpms/
+└── core2_64
+    ├── libtest-dbg-1.0-r0.core2_64.rpm
+    ├── libtest-dev-1.0-r0.core2_64.rpm
+    └── libtest1-1.0-r0.core2_64.rpm
+
+------------------------------------------------------------------------------------------
+
+bitbake-getvar -r kh-uselib libdir
+#
+# $libdir [4 operations]
+#   exported /home/kh/repo/poky/meta/conf/bitbake.conf:46
+#     [export] "1"
+#   set /home/kh/repo/poky/meta/conf/bitbake.conf:46
+#     "${exec_prefix}/${baselib}"
+#   override[native]:set /home/kh/repo/poky/meta/conf/bitbake.conf:60
+#     "${prefix_native}/lib"
+#   override[nativesdk]:set /home/kh/repo/poky/meta/conf/bitbake.conf:72
+#     "${prefix_nativesdk}/lib"
+# pre-expansion value:
+#   "${exec_prefix}/${baselib}"
+export libdir="/usr/lib"
+
+------------------------------------------------------------------------------------------
+
+bitbake-getvar -r kh-uselib bindir
+#
+# $bindir [6 operations]
+#   exported /home/kh/repo/poky/meta/conf/bitbake.conf:44
+#     [export] "1"
+#   set /home/kh/repo/poky/meta/conf/bitbake.conf:44
+#     "${exec_prefix}/bin"
+#   override[native]:set /home/kh/repo/poky/meta/conf/bitbake.conf:57
+#     "${prefix_native}/bin"
+#   override[cross]:set /home/kh/repo/poky/meta/conf/bitbake.conf:64
+#     "/bin"
+#   override[crossscripts]:set /home/kh/repo/poky/meta/conf/bitbake.conf:65
+#     "${bindir}/crossscripts"
+#   override[nativesdk]:set /home/kh/repo/poky/meta/conf/bitbake.conf:67
+#     "${prefix_nativesdk}/bin"
+# pre-expansion value:
+#   "${exec_prefix}/bin"
+export bindir="/usr/bin"
+
+------------------------------------------------------------------------------------------
+
+bitbake kh-lib
+Loading cache: 100% |#############################################################################################################################################################################| Time: 0:00:00
+Loaded 1339 entries from dependency cache.
+Parsing recipes: 100% |###########################################################################################################################################################################| Time: 0:00:11
+Parsing of 785 .bb files complete (781 cached, 4 parsed). 1341 targets, 39 skipped, 0 masked, 0 errors.
+NOTE: Resolving any missing task queue dependencies
+
+Build Configuration:
+BB_VERSION           = "1.46.0"
+BUILD_SYS            = "x86_64-linux"
+NATIVELSBSTRING      = "universal"
+TARGET_SYS           = "x86_64-kh-linux"
+MACHINE              = "kh"
+DISTRO               = "kh-distro"
+DISTRO_VERSION       = "3.1.33"
+TUNE_FEATURES        = "m64 core2"
+TARGET_FPU           = ""
+meta
+meta-poky
+meta-yocto-bsp
+meta-kh
+meta-kh-bsp
+meta-kh-project      = "dunfell:63d05fc061006bf1a88630d6d91cdc76ea33fbf2"
+
+Initialising tasks: 100% |########################################################################################################################################################################| Time: 0:00:00
+Sstate summary: Wanted 50 Found 50 Missed 0 Current 87 (100% match, 100% complete)
+NOTE: Executing Tasks
+NOTE: Tasks Summary: Attempted 551 tasks of which 551 didn't need to be rerun and all succeeded.
+
+------------------------------------------------------------------------------------------
+
+bitbake kh-uselib
+Loading cache: 100% |#############################################################################################################################################################################| Time: 0:00:00
+Loaded 1340 entries from dependency cache.
+Parsing recipes: 100% |###########################################################################################################################################################################| Time: 0:00:11
+Parsing of 785 .bb files complete (783 cached, 2 parsed). 1341 targets, 39 skipped, 0 masked, 0 errors.
+NOTE: Resolving any missing task queue dependencies
+
+Build Configuration:
+BB_VERSION           = "1.46.0"
+BUILD_SYS            = "x86_64-linux"
+NATIVELSBSTRING      = "universal"
+TARGET_SYS           = "x86_64-kh-linux"
+MACHINE              = "kh"
+DISTRO               = "kh-distro"
+DISTRO_VERSION       = "3.1.33"
+TUNE_FEATURES        = "m64 core2"
+TARGET_FPU           = ""
+meta
+meta-poky
+meta-yocto-bsp
+meta-kh
+meta-kh-bsp
+meta-kh-project      = "dunfell:63d05fc061006bf1a88630d6d91cdc76ea33fbf2"
+
+Initialising tasks: 100% |########################################################################################################################################################################| Time: 0:00:00
+Sstate summary: Wanted 57 Found 50 Missed 7 Current 84 (87% match, 95% complete)
+NOTE: Executing Tasks
+NOTE: Tasks Summary: Attempted 562 tasks of which 547 didn't need to be rerun and all succeeded.
+
+------------------------------------------------------------------------------------------
+
+bitbake kh-image -C rootfs
+Loading cache: 100% |#############################################################################################################################################################################| Time: 0:00:00
+Loaded 1340 entries from dependency cache.
+Parsing recipes: 100% |###########################################################################################################################################################################| Time: 0:00:11
+Parsing of 785 .bb files complete (784 cached, 1 parsed). 1341 targets, 39 skipped, 0 masked, 0 errors.
+NOTE: Resolving any missing task queue dependencies
+
+Build Configuration:
+BB_VERSION           = "1.46.0"
+BUILD_SYS            = "x86_64-linux"
+NATIVELSBSTRING      = "universal"
+TARGET_SYS           = "x86_64-kh-linux"
+MACHINE              = "kh"
+DISTRO               = "kh-distro"
+DISTRO_VERSION       = "3.1.33"
+TUNE_FEATURES        = "m64 core2"
+TARGET_FPU           = ""
+meta
+meta-poky
+meta-yocto-bsp
+meta-kh
+meta-kh-bsp
+meta-kh-project      = "dunfell:63d05fc061006bf1a88630d6d91cdc76ea33fbf2"
+
+NOTE: Tainting hash to force rebuild of task /home/kh/repo/poky/meta-kh/recipes-core/image/kh-image.bb, do_rootfs                                                                                 | ETA:  0:00:00
+WARNING: /home/kh/repo/poky/meta-kh/recipes-core/image/kh-image.bb:do_rootfs is tainted from a forced run                                                                                         | ETA:  0:00:00
+Initialising tasks: 100% |########################################################################################################################################################################| Time: 0:00:01
+Checking sstate mirror object availability: 100% |################################################################################################################################################| Time: 0:00:00
+Sstate summary: Wanted 123 Found 120 Missed 3 Current 1589 (97% match, 99% complete)
+NOTE: Executing Tasks
+NOTE: Tasks Summary: Attempted 4424 tasks of which 4414 didn't need to be rerun and all succeeded.
+
+Summary: There was 1 WARNING message shown.
+
+------------------------------------------------------------------------------------------
+
+[  OK  ] Started Update UTMP about System Runlevel Changes.
+[   16.963869] NFSD: Using /var/lib/nfs/v4recovery as the NFSv4 state recovery directory
+[   16.968824] NFSD: Using legacy client tracking operations.
+[   16.968990] NFSD: starting 90-second grace period (net f0000098)
+[  OK  ] Started NFS server and services.
+
+Kang Hyuck Distro 3.1.33 kh ttyS0
+
+kh login: kh
+Password:
+kh:~$
+kh:~$ voice_main
+Hello voice main!
+Meow! Meow!
+Bark! Bark!
+

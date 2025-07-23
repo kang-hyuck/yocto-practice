@@ -1,0 +1,79 @@
+
+## check package foramt & PACKAGES,FILES
+vi build2/conf/local.conf
+vi meta/conf/bitbake.conf
+
+## create library
+tree meta-kh-project/
+meta-kh-project/
+├── appends
+│   └── nano_6.0.bbappend
+├── conf
+│   └── layer.conf
+├── recipes-core
+│   ├── image
+│   │   └── kh-image.bbappend
+│   └── packagegroups
+│       └── packagegroup-kh.bb
+├── recipes-hello
+│   ├── hello.bb
+│   └── source
+│       ├── COPYING
+│       ├── hello.c
+│       └── hello.service
+├── recipes-kh-lib
+│   ├── files
+│   │   ├── cat.c  // ++++
+│   │   ├── dog.c  // ++++
+│   │   └── func.h // ++++
+│   └── kh-lib.bb  // ++++
+└── recipes-nano
+    └── nano_6.0.bb
+
+bitbake-getvar -r packagegroup-kh COMMON_LICENSE_DIR
+md5sum /home/kh/repo/poky/meta/files/common-licenses/MIT
+bitbake kh-lib
+bitbake-getvar -r kh-lib D
+tree build2/tmp/work/core2-64-kh-linux/kh-lib/1.0-r0/image
+tree build2/tmp/work/core2-64-kh-linux/kh-lib/1.0-r0/packages-split/
+tree build2/tmp/work/core2-64-kh-linux/kh-lib/1.0-r0/deploy-rpms/
+
+## use library & create image
+tree meta-kh-project/
+meta-kh-project/
+├── appends
+│   └── nano_6.0.bbappend
+├── conf
+│   └── layer.conf
+├── recipes-core
+│   ├── image
+│   │   └── kh-image.bbappend
+│   └── packagegroups
+│       └── packagegroup-kh.bb  // ++ (update IMAGE_INSTALL)
+├── recipes-hello
+│   ├── hello.bb
+│   └── source
+│       ├── COPYING
+│       ├── hello.c
+│       └── hello.service
+├── recipes-kh-lib
+│   ├── files
+│   │   ├── cat.c
+│   │   ├── dog.c
+│   │   └── func.h
+│   └── kh-lib.bb
+├── recipes-kh-uselib
+│   ├── files
+│   │   ├── func.h  // ++++
+│   │   ├── libtest.so  // ++ (copy from WORKDIR & change name so.1.0 -> so)
+│   │   └── voice_main.c  // ++++
+│   └── kh-uselib.bb  // ++++
+└── recipes-nano
+    └── nano_6.0.bb
+
+bitbake kh-lib
+bitbake kh-uselib
+bitbake kh-image -C rootfs
+runqemu kh-image nographic
+voice_main
+
