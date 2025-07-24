@@ -258,3 +258,74 @@ Hello voice main!
 Meow! Meow!
 Bark! Bark!
 
+------------------------------------------------------------------------------------------
+
+bitbake kh-lib -c cleanall
+Loading cache: 100% |################################################################################| Time: 0:00:00
+Loaded 1340 entries from dependency cache.
+Parsing recipes: 100% |##############################################################################| Time: 0:00:11
+Parsing of 785 .bb files complete (784 cached, 1 parsed). 1341 targets, 39 skipped, 0 masked, 0 errors.
+NOTE: Resolving any missing task queue dependencies
+
+Build Configuration:
+BB_VERSION           = "1.46.0"
+BUILD_SYS            = "x86_64-linux"
+NATIVELSBSTRING      = "universal"
+TARGET_SYS           = "x86_64-kh-linux"
+MACHINE              = "kh"
+DISTRO               = "kh-distro"
+DISTRO_VERSION       = "3.1.33"
+TUNE_FEATURES        = "m64 core2"
+TARGET_FPU           = ""
+meta
+meta-poky
+meta-yocto-bsp
+meta-kh
+meta-kh-bsp
+meta-kh-project      = "dunfell:63d05fc061006bf1a88630d6d91cdc76ea33fbf2"
+
+Initialising tasks: 100% |###########################################################################| Time: 0:00:00
+Sstate summary: Wanted 0 Found 0 Missed 0 Current 0 (0% match, 0% complete)
+NOTE: No setscene tasks
+NOTE: Executing Tasks
+NOTE: Tasks Summary: Attempted 3 tasks of which 0 didn't need to be rerun and all succeeded.
+
+------------------------------------------------------------------------------------------
+
+bitbake kh-uselib -c cleanall
+Loading cache: 100% |####################################################################################################################################################################################################################################################| Time: 0:00:00
+Loaded 1340 entries from dependency cache.
+Parsing recipes: 100% |##################################################################################################################################################################################################################################################| Time: 0:00:12
+Parsing of 785 .bb files complete (784 cached, 1 parsed). 1341 targets, 39 skipped, 0 masked, 0 errors.
+NOTE: Resolving any missing task queue dependencies
+
+Build Configuration:
+BB_VERSION           = "1.46.0"
+BUILD_SYS            = "x86_64-linux"
+NATIVELSBSTRING      = "universal"
+TARGET_SYS           = "x86_64-kh-linux"
+MACHINE              = "kh"
+DISTRO               = "kh-distro"
+DISTRO_VERSION       = "3.1.33"
+TUNE_FEATURES        = "m64 core2"
+TARGET_FPU           = ""
+meta
+meta-poky
+meta-yocto-bsp
+meta-kh
+meta-kh-bsp
+meta-kh-project      = "dunfell:63d05fc061006bf1a88630d6d91cdc76ea33fbf2"
+
+Initialising tasks: 100% |###############################################################################################################################################################################################################################################| Time: 0:00:00
+Sstate summary: Wanted 0 Found 0 Missed 0 Current 0 (0% match, 0% complete)
+NOTE: No setscene tasks
+NOTE: Executing Tasks
+NOTE: Tasks Summary: Attempted 3 tasks of which 0 didn't need to be rerun and all succeeded.
+
+------------------------------------------------------------------------------------------
+
+find build2/tmp/work/core2-64-kh-linux/kh-uselib/1.0-r0/recipe-sysroot -name "libtest*"
+build2/tmp/work/core2-64-kh-linux/kh-uselib/1.0-r0/recipe-sysroot/usr/lib/libtest.so
+build2/tmp/work/core2-64-kh-linux/kh-uselib/1.0-r0/recipe-sysroot/usr/lib/libtest.so.1
+build2/tmp/work/core2-64-kh-linux/kh-uselib/1.0-r0/recipe-sysroot/usr/lib/libtest.so.1.0
+

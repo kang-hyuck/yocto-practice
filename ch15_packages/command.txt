@@ -77,3 +77,15 @@ bitbake kh-image -C rootfs
 runqemu kh-image nographic
 voice_main
 
+## clean & create image
+bitbake kh-lib -c cleanall
+bitbake kh-uselib -c cleanall
+bitbake kh-uselib
+find build2/tmp/work/core2-64-kh-linux/kh-uselib/1.0-r0/recipe-sysroot -name "libtest*"
+bitbake kh-image -C rootfs
+runqemu kh-image nographic
+
+## check do_prepare_recipe_sysroot
+bitbake kh-uselib --runall=do_prepare_recipe_sysroot
+vi build2/tmp/work/core2-64-kh-linux/kh-uselib/1.0-r0/temp/log.task_order
+
